@@ -1,0 +1,189 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{amsmath, amssymb, titling}
+\usepackage[margin=3cm]{geometry}
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{float}
+
+% \usepackage{minted}
+\usepackage{xcolor}
+
+\title{Satellite Orbit Control}
+\author{Almog Dubrescu\\\\ID 214254252}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+\section{Given}
+\begin{itemize}
+    \item In ECI
+    \begin{align*}
+        \vec{r}_{an} = \begin{pmatrix}
+            5000\\8500\\???
+        \end{pmatrix} [km]
+        \hspace{1cm}
+        \vec{v}_{an} = \begin{pmatrix}
+            2.15\\-2.05\\???
+        \end{pmatrix} \left[\frac{km}{sec}\right]
+    \end{align*}
+    \item $$ T = 7800 [sec] $$
+    \item $$ m = 450 [kg] $$
+    \item $$ A_{drag} = 2 [m^2]$$
+    \item $$ C_D = 2.2 [-]$$
+    \item $$ A_{solar} = 5 [m^2]$$
+\end{itemize}
+\section{Q1}
+\input{Q1}
+\newpage
+
+\section{Q2}
+In order to perform the simulation of the orbit based on the equations of motion we need to list all the forces that act on the satellite:
+\begin{itemize}
+    \item \textbf{\Large Equations of Motion of a Point Mass in a Central Force Field:}\\
+    Vector equation of motion:
+    \begin{equation}
+        \ddot \vec{r} = -\frac{\mu}{r^3}\vec{r}+\vec{f}
+    \end{equation}
+    Where:
+    \begin{itemize}
+        \item $\mu = \text{G}\cdot \text{M}$
+        \item $\vec{r}(t_0) = \vec{r}_0$
+        \item $\dot \vec{r}(t_0) = \frac{d\vec{r}}{dt}(t_0) = \vec{v}_0$
+    \end{itemize}
+    The equation is based on:
+    \begin{itemize}
+        \item Gravitational attraction between two point masses
+        \item Newton's second law
+        \item Assumptions: m<<M, M is homogeneous sphere
+        \item $\vec{f}$ is all the external forces 
+    \end{itemize}
+    \item \textbf{\Large $\vec{f}$:}
+    \begin{enumerate}
+        \item \textbf{\large Atmospheric Drag:}  \begin{equation}
+            \vec{f}_d = -\frac{1}{2}\rho v^2K_D\vec{v}
+        \end{equation}
+        Where:
+        \begin{itemize}
+            \item $\rho$ is the atmospheric density
+            \item $\displaystyle{K_D = \frac{A_{drag}\cdot C_D}{m}}$
+        \end{itemize}
+        Density modle:
+        \begin{equation}
+            \rho(h) = \rho_b\cdot e^{\frac{h-h_b}{H}}
+        \end{equation}
+        Where:
+        \begin{itemize}
+            \item H is the Scale Height
+            \item $\rho_b$ is the density at the bottom of $h_b$ height layer
+            \item $h_b$ is the base height
+        \end{itemize}
+        \item \textbf{\large Earth Oblateness ($J_2$ term):}\\
+        First order perturbation acceleration:
+        \begin{equation}
+        \begin{cases}
+            f_r &=\displaystyle -\frac{3}{2}\frac{\mu}{r^2}J_2\left(\frac{R_e}{r}\right)^2\left(1-3\sin^2(i)\sin^2(\theta^*)\right)\\
+            f_\theta &=\displaystyle -3\frac{\mu}{r^2}J_2\left(\frac{R_e}{r}\right)^2\sin^2(i)\sin(\theta^*)\cos(\theta^*)\\
+            f_h &=\displaystyle -3\frac{\mu}{r^2}J_2\left(\frac{R_e}{r}\right)^2\sin(i)\cos(i)\sin(\theta^*)
+        \end{cases}
+        \end{equation}
+        \newpage
+        Where:
+        \begin{itemize}
+            \item $J_2 = 0.0010826$ 
+            \item $R_e$ is the earth radius
+            \item $\theta^* = \theta+\omega$
+            \item $\theta$ is the true anomaly
+        \end{itemize}
+        And in ECI coordinate system:
+        \begin{equation}
+        \begin{cases}
+            f_x &=\displaystyle  -\frac{3}{2}\frac{\mu\cdot x}{r^3}J_2\left(\frac{R_e}{r}\right)^2\left(5\frac{z^2}{r^2}-1\right)\\
+            f_y &=\displaystyle -\frac{3}{2}\frac{\mu\cdot y}{r^3}J_2\left(\frac{R_e}{r}\right)^2\left(5\frac{z^2}{r^2}-1\right)\\
+            f_z &=\displaystyle -\frac{3}{2}\frac{\mu\cdot z}{r^3}J_2\left(\frac{R_e}{r}\right)^2\left(5\frac{z^2}{r^2}-3\right)
+        \end{cases}
+        \end{equation}
+        \item \textbf{\large Solar Radiation Pressure:}\\
+        The solar radiation acceleration is:
+        \begin{equation}
+            \vec{f}_s = -(1+\varepsilon)\frac{G_s}{c}\frac{A_{solar}}{m}\hat{r}_{sun}
+        \end{equation}
+        Where:
+        \begin{itemize}
+            \item $\varepsilon$ is the reflectivity coefficient $\in[0,1]$ (in our case $\varepsilon = 1$)
+            \item $G_s = 1358 \left[\frac{W}{m^2}\right]$ 
+            \item c is the speed of light $\left(2.9979\cdot10^8\left[\frac{m}{s}\right]\right)$
+        \end{itemize}
+        The unit vector from Earh to the sun:
+        \begin{equation}
+            \hat{r}_s = \begin{pmatrix}
+                \cos(\delta)\cos(RA)\\
+                \cos(\delta)\sin(RA)\\
+                \sin(\delta)
+            \end{pmatrix}
+        \end{equation}
+        Where:
+        \begin{itemize}
+            \item $RA = 0.98563(N-80)^\circ$
+            \item $\sin(\delta) = 0.39795\cdot\cos\left(0.98563(N-173)^\circ\right)$
+            \item N = datenum(['our date']) - datenum(['1-Jan']) + 1 (in MatLab)
+        \end{itemize}
+        The angle between the sun and the orbit plane $(\beta)$:
+        \begin{figure}[H]
+        \begin{center}
+        \includegraphics[width=0.25\textwidth]{images/The angle between the sun and the orbit plane - beta.png}
+        \caption{defention of $\beta$ \cite{SM_Tutorial_10}}
+        \end{center}
+        \end{figure}
+        \begin{equation}
+            \hat{h}\cdot\hat{r}_s = |\hat{h}|\cdot|\hat{r}_s|\cdot\cos(90^\circ-\beta)=\sin\beta
+        \end{equation}
+        Where:
+        \begin{itemize}
+            \item $-90^\circ\leq\beta\leq90^\circ$
+        \end{itemize}
+        \newpage
+        The angle between the projection of $\hat{r}_s$ on the orbit plane and $\hat{e}\ (\alpha)$:
+        \begin{figure}[H]
+        \begin{center}
+        \includegraphics[width=0.5\textwidth]{images/angle between the projection of r_s on the orbit plane and eccentricity - alpha.png}
+        \caption{defention of $\alpha$ \cite{SM_Tutorial_10}}
+        \end{center}
+        \end{figure}
+        \begin{equation}
+            \begin{cases}
+                sin(\alpha) =\displaystyle -\frac{\left(\hat{h}\times\hat{r}_s\right)\cdot\hat{e}}{\cos(\beta)}\\
+                \cos(\alpha) =\displaystyle \frac{\left(\hat{h}\times\left(\hat{r}_s\times\hat{h}\right)\right)\cdot\hat{e}}{\cos(\beta)}
+            \end{cases}
+        \end{equation}
+        Decomposing $\vec{f}_s$ into two forces: $\vec{f}_{sh}$ in the orbit plane, and $\vec{f}_{sp}$ normal to the orbit plane. splitting the horizontal component to a radial and tangent parts:
+        \begin{equation}
+            \begin{cases}
+                f_r = \vec{f}_{sh} \cdot \overbrace{(\cos f\hat{x}+\sin f\hat{y})}^{\hat{r}}\ \ \ = -f_{sh}(\cos \alpha \cos f + \sin\alpha \sin f)\\
+                f_f = \vec{f}_{sh}\cdot \underbrace{(-\sin f\hat{x}+\cos f\hat{y})}_{\hat{f}} = -f_{sh}(\cos \alpha \cos f - \sin\alpha \sin f)
+            \end{cases}
+        \end{equation}
+        \underline{Shadow Model}:
+        \begin{figure}[H]
+        \begin{center}
+        \includegraphics[width=.8\textwidth]{images/shadow model.png}
+        \caption{shadow model \cite{SM_Tutorial_10}}
+        \end{center}
+        \end{figure}
+
+    \end{enumerate}
+\end{itemize}
+
+\newpage
+\bibliographystyle{ieeetr}
+\bibliography{references}
+
+\end{document}
