@@ -22,6 +22,11 @@
 \newpage
 \setcounter{page}{1}
 
+\tableofcontents
+\vfil
+\listoffigures
+\newpage
+
 \section{Given}
 \begin{itemize}
     \item In ECI
@@ -172,7 +177,77 @@ In order to perform the simulation of the orbit based on the equations of motion
     \end{center}
 \end{figure}
 We can see that the \emph{a, e, i, $\omega$} doesn't really change after one period, but the \emph{Longitude of the ascenging node} groth monotonous over the period.
+\newpage
 
+\section{Q3}
+A Tangential positive velocity change of $10\left[\frac{m}{sec}\right]$ was applied at the perigee. The new orbital elements immediately after teh pulse are:
+\begin{equation}
+    \Delta\vec{v} = \begin{pmatrix}
+        \Delta v_t \\
+        \Delta v_n \\
+        \Delta v_h
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        10 \\ 0 \\ 0
+    \end{pmatrix}
+    \left[\frac{m}{sec}\right]
+\end{equation}
+For small velocity change we get:
+\begin{equation}
+    \begin{pmatrix}
+        \Delta a\\
+        \Delta e\\
+        \Delta i\\
+        \Delta \Omega\\
+        \Delta \omega\\
+        \Delta M
+    \end{pmatrix}
+    = \begin{pmatrix}\
+        \frac{2a}{rv}\left(2a-r\right) & 0 & 0 \\
+        \frac{2}{v}\left(e+\cos\left(\theta\right)\right) & \frac{r}{av}\sin\left(\theta\right) & 0 \\
+        0 & 0 & \frac{r}{h}\cos\left(\theta^*\right) \\
+        0 & 0 & \frac{r}{h}\frac{\sin\left(\theta^*\right)}{\sin\left(i\right)} \\
+        \frac{2}{ev}\sin\left(\theta^*\right) & -\frac{1}{ev}\left(2e+\frac{r}{a}\right)\cos\left(\theta\right) &  -\frac{r}{h}\frac{\sin\left(\theta^*\right)\cos\left(i\right)}{\sin\left(i\right)} \\
+        -\frac{2\sqrt{1-e^2}}{ev}\left(1+\frac{e^2r}{p}\right)\sin\left(\theta\right) & \frac{r\sqrt{1-e^2}}{eva}\cos\left(\theta\right) & 0
+
+    \end{pmatrix}
+    \begin{pmatrix}
+        \Delta v_t \\
+        \Delta v_n \\
+        \Delta v_h
+    \end{pmatrix}
+\end{equation}
+multipling in MatLab we get:
+\begin{equation}
+    \begin{pmatrix}
+        \Delta a\\
+        \Delta e\\
+        \Delta i\\
+        \Delta \Omega\\
+        \Delta \omega\\
+        \Delta M
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        3.0311\cdot10^4 \\
+        2.8635 \\ 
+        0 \\ 
+        0 \\
+        5.9793 \\ 
+        0
+    \end{pmatrix}
+\end{equation}
+$$\Downarrow$$
+\begin{equation}
+\begin{matrix}
+    \colorbox{yellow}{$a = 3.8812\cdot10^4$}\\
+    \colorbox{yellow}{$e = 3.0604$}\\
+    \colorbox{yellow}{$i = 2.0942[rad] = 119.9888^\circ$}\\
+    \colorbox{yellow}{$\Omega = 1.0391 [rad] = 59.5303^\circ$}\\
+    \colorbox{yellow}{$\omega = 8.6063 [rad] = 133.1047^\circ$}
+\end{matrix}
+\end{equation}
 
 \newpage
 \bibliographystyle{ieeetr}
