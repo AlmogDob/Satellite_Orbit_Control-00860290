@@ -2,7 +2,6 @@
 \usepackage{amsmath, amssymb, titling}
 \usepackage[margin=3cm]{geometry}
 
-\usepackage{titling}
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
 \usepackage{enumitem}
@@ -76,7 +75,7 @@ In order to perform the simulation of the orbit based on the equations of motion
             \item $\rho$ is the atmospheric density
             \item $\displaystyle{K_D = \frac{A_{drag}\cdot C_D}{m}}$
         \end{itemize}
-        Density modle:
+        \underline{Density modle}:
         \begin{equation}
             \rho(h) = \rho_b\cdot e^{\frac{h-h_b}{H}}
         \end{equation}
@@ -136,41 +135,7 @@ In order to perform the simulation of the orbit based on the equations of motion
             \item $\sin(\delta) = 0.39795\cdot\cos\left(0.98563(N-173)^\circ\right)$
             \item N = datenum(['our date']) - datenum(['1-Jan']) + 1 (in MatLab)
         \end{itemize}
-        The angle between the sun and the orbit plane $(\beta)$:
-        \begin{figure}[H]
-        \begin{center}
-        \includegraphics[width=0.25\textwidth]{images/The angle between the sun and the orbit plane - beta.png}
-        \caption{defention of $\beta$ \cite{SM_Tutorial_10}}
-        \end{center}
-        \end{figure}
-        \begin{equation}
-            \hat{h}\cdot\hat{r}_s = |\hat{h}|\cdot|\hat{r}_s|\cdot\cos(90^\circ-\beta)=\sin\beta
-        \end{equation}
-        Where:
-        \begin{itemize}
-            \item $-90^\circ\leq\beta\leq90^\circ$
-        \end{itemize}
         \newpage
-        The angle between the projection of $\hat{r}_s$ on the orbit plane and $\hat{e}\ (\alpha)$:
-        \begin{figure}[H]
-        \begin{center}
-        \includegraphics[width=0.5\textwidth]{images/angle between the projection of r_s on the orbit plane and eccentricity - alpha.png}
-        \caption{defention of $\alpha$ \cite{SM_Tutorial_10}}
-        \end{center}
-        \end{figure}
-        \begin{equation}
-            \begin{cases}
-                sin(\alpha) =\displaystyle -\frac{\left(\hat{h}\times\hat{r}_s\right)\cdot\hat{e}}{\cos(\beta)}\\
-                \cos(\alpha) =\displaystyle \frac{\left(\hat{h}\times\left(\hat{r}_s\times\hat{h}\right)\right)\cdot\hat{e}}{\cos(\beta)}
-            \end{cases}
-        \end{equation}
-        Decomposing $\vec{f}_s$ into two forces: $\vec{f}_{sh}$ in the orbit plane, and $\vec{f}_{sp}$ normal to the orbit plane. splitting the horizontal component to a radial and tangent parts:
-        \begin{equation}
-            \begin{cases}
-                f_r = \vec{f}_{sh} \cdot \overbrace{(\cos f\hat{x}+\sin f\hat{y})}^{\hat{r}}\ \ \ = -f_{sh}(\cos \alpha \cos f + \sin\alpha \sin f)\\
-                f_f = \vec{f}_{sh}\cdot \underbrace{(-\sin f\hat{x}+\cos f\hat{y})}_{\hat{f}} = -f_{sh}(\cos \alpha \cos f - \sin\alpha \sin f)
-            \end{cases}
-        \end{equation}
         \underline{Shadow Model}:
         \begin{figure}[H]
         \begin{center}
@@ -178,9 +143,36 @@ In order to perform the simulation of the orbit based on the equations of motion
         \caption{shadow model \cite{SM_Tutorial_10}}
         \end{center}
         \end{figure}
+        Assuming a cylindrical shadow, there are two condition for the satellite to be in the earth's shadow:
+        \begin{enumerate}
+            \item $\vec{r}\cdot\vec{r}_s < 0$
+            \item $r\cdot\sin\left(\arccos\left(\vec{r}_s\cdot\vec{r}\right)\right) < Re$
+        \end{enumerate}
 
     \end{enumerate}
 \end{itemize}
+\textbf{\Large The Simulation Results:}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{images/grap1.png}
+    \caption{xyz 3D plot of orbit}
+    \end{center}
+\end{figure}
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{images/grap1.1.png}
+    \caption{xyz 3D plot of orbit - zoom}
+    \end{center}
+\end{figure}
+\noindent We can see that because of the perturbations, the orbit does not close and overlap a bit.
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{images/grap2.png}
+    \caption{orbit elements}
+    \end{center}
+\end{figure}
+We can see that the \emph{a, e, i, $\omega$} doesn't really change after one period, but the \emph{Longitude of the ascenging node} groth monotonous over the period.
+
 
 \newpage
 \bibliographystyle{ieeetr}
