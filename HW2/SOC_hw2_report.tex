@@ -4,12 +4,12 @@
 
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
-\usepackage{enumitem}
+% \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{float}
 
 % \usepackage{minted}
-\usepackage{xcolor}
+% \usepackage{xcolor}
 
 \title{Satellite Orbit Control \\ HW2}
 \author{Almog Dobrescu\\\\ID 214254252}
@@ -27,6 +27,92 @@
 \listoffigures
 \newpage
 
+\section{Given}
+\begin{equation*}
+    \begin{matrix}
+        T_1=100\left[min\right] = 6\cdot10^3\left[sec\right] && T_2 = T_1 = 6\cdot10^3\left[sec\right] \\
+        e_1 = 0 && e_2 = 0 \\
+        a_1 = \sqrt[3]{\frac{\mu T_1^2}{4\pi^2}} = 7.1366\cdot10^3\left[km\right] && a_2 = a_1 = 7.1366\cdot10^3\left[km\right]
+    \end{matrix}\\
+\end{equation*}
+\begin{equation*}
+    \alpha=\Delta i = 0.01^\circ
+\end{equation*}
+In CW fram with origin at Satellite \#1 and at $t=0$:
+\begin{equation*}
+    \begin{matrix}
+    \begin{pmatrix}
+        x_2(0)=0 \\ y_2(0)=-1 \\ z_2(0)=1
+    \end{pmatrix}\left[km\right] &&
+    \begin{pmatrix}
+        \dot{x}_2(0)=?? \\ \dot{y}_2(0) = ?? \\ \dot{z}_2(0)<0
+    \end{pmatrix}
+    \end{matrix}
+\end{equation*}
+Desired:
+\begin{equation*}
+    \begin{matrix}
+    \begin{pmatrix}
+        x_2(t_1)=0 \\ y_2(t_1)=0 \\ z_2(t_1)=0
+    \end{pmatrix} &&
+    \begin{pmatrix}
+        \dot{x}_2(t_1)=0 \\ \dot{y}_2(t_1)=0 \\ \dot{z}_2(t_1)=0
+    \end{pmatrix}
+    \end{matrix}
+\end{equation*}
+Limitations:
+\begin{equation*}
+    \Delta v = t \begin{pmatrix}
+        0\\
+        \Delta v_y\\
+        \Delta v_z
+    \end{pmatrix}
+\end{equation*}
+
+\section{A}
+General equations of motion in CW fram:
+\begin{equation}
+    \left\{\begin{array}{l}
+        \ddot{x}-2n\dot{y}-3n^2x=f_x\\
+        \ddot{y}+2n\dot{x}=f_y\\
+        \ddot{z}+n^2z=f_z
+    \end{array}\right.
+\end{equation}
+The velocities:
+\begin{equation}
+    \left\{\begin{array}{l}
+        u_x = \dot{x}-ny(t)\\
+        u_y = \dot{y}+nx(t)\\
+        u_z = \dot{z}
+    \end{array}\right.
+\end{equation}
+The solution without external forces (i.e. $\vec{f}=\vec{0}$):
+\begin{equation}
+    \left\{\begin{array}{l}
+        \displaystyle x(t) = \left(4-3\cos(nt)\right)\cdot x_0 + \frac{\dot{x}_0}{n}\sin(nt)+\frac{2}{n}\left(1-\cos(nt)\right)\cdot\dot{y}_0 \\
+        \displaystyle y(t) = 6\left(\sin(nt)-nt\right)\cdot x_0 + y_0 + \frac{2}{n}\left(\cos(nt)-1\right)\cdot\dot{x}_0 + \left(4\sin(nt)-3nt\right)\frac{\dot{y}}{n} \\
+        \displaystyle z(t)=z_0\cos(nt)+\frac{\dot{z}_0}{n}\sin(nt)
+    \end{array}\right.
+\end{equation}
+Because the two satellite have the same period then the motion is periodical. The condition for periodical motion is:
+\begin{equation}
+    \dot{y}_0=-2nx_0
+\end{equation}
+So the equations of motion becomes:
+\begin{equation}
+    \left\{\begin{array}{l}
+        \displaystyle x(t) = x_0\cos(nt) + \frac{\dot{x}_0}{n}\sin(nt) \\
+        \displaystyle y(t) = y_0 + \frac{2}{n}\left(\cos(nt)-1\right)\cdot\dot{x}_0 -2x_0\sin(nt) \\
+        \displaystyle z(t)=z_0\cos(nt)+\frac{\dot{z}_0}{n}\sin(nt)
+    \end{array}\right.
+\end{equation}
+% The required maneuver time is the time required for the position in the \emph{z} direction to become zero:
+% \begin{align}
+%     z_0\cos(nt)+\frac{\dot{z}_0}{n}\sin(nt) &= 0 \\
+%     \cos(nt)+\frac{\dot{z}_0}{n}\sin(nt) &= 0 \\
+%     \sqrt{1^2+\frac{\dot{z}}{n}}\cos\left(nt + \arctan\left(\frac{\displaystyle -\frac{\dot{z}_0}{n}}{1}\right)\right) = 0 \\
+%     nt +\arctan\left(\frac{\displaystyle -\frac{\dot{z}_0}{n}}{1}\right) = \frac{\pi}{2} + \pi k
+% \end{align}
 
 
 \end{document}
