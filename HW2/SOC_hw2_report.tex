@@ -1,6 +1,6 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage{amsmath, amssymb, titling}
-\usepackage[margin=3cm]{geometry}
+\usepackage[margin=2cm]{geometry}
 
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
@@ -113,6 +113,139 @@ So the equations of motion becomes:
 %     \sqrt{1^2+\frac{\dot{z}}{n}}\cos\left(nt + \arctan\left(\frac{\displaystyle -\frac{\dot{z}_0}{n}}{1}\right)\right) = 0 \\
 %     nt +\arctan\left(\frac{\displaystyle -\frac{\dot{z}_0}{n}}{1}\right) = \frac{\pi}{2} + \pi k
 % \end{align}
+\begin{equation}
+    \left\{\begin{array}{l}
+        \displaystyle\dot{x}(t) = -nx_0\sin(nt) + \dot{x}_0\cos(nt) \\
+        \displaystyle\dot{y}(t) = -\frac{2\dot{x}_0}{n}\left(n\sin(nt)+1\right)-2nx_0\cos(nt) \\
+        \dot{z}(t) = -nz_0\sin(nt) + \dot{z}_0\cos(nt)
+    \end{array}\right.
+\end{equation}
+From the angle between the plains we can claculate $\dot{z}_2(0)$:
+\begin{align}
+    \tan\alpha &= \frac{z_{max}}{a_1} = \frac{\displaystyle\sqrt{z_2(0)^2+\left(\frac{\dot{z}_2(0)}{n}\right)^2}}{a_1} \\
+    \frac{\dot{z}_2(0)}{n} &= \underbrace{-}_{\displaystyle\dot{z}_2(0)<0}\sqrt{\left(a_1\cdot\tan(\alpha)\right)^2-z_2(0)^2} \\
+    \frac{\dot{z}_2(0)}{n} &= -0.7426;
+\end{align}
+The CW equations in state-space form:
+\begin{equation}
+    \begin{matrix}
+        \text{x-y plane:} && \text{z-direction:} \\
+        \begin{matrix}
+            x1 = x \\
+            x2 = \dot{x}
+        \end{matrix} && z1 = z \\
+        \begin{matrix}
+            y1 = y \\
+            y2 = \dot{y}
+        \end{matrix} && z2 = \dot{z}
+    \end{matrix}
+\end{equation}
+The homogeneous solution with no drift condition:
+\begin{equation}
+    \vec{x}(t) = \Phi_{(t,t_0)}\vec{x}_0
+\end{equation}
+\begin{equation}
+    \begin{array}{l}
+        \text{x-y plane:} \\
+        % \Phi_{(t,t_0)} = \left(\begin{array}{cc|cc}
+        %     4-3\cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) \\ 
+        %     6\left(\sin(n\tau)-n\tau\right) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau-3n\tau)\right)\\ &&& \\ \hline &&& \\
+        %     3n\cdot\sin(n\tau) & 0 & \cos(n\tau) & 2\sin(n\tau) \\
+        %     6n\left(\cos(n\tau)-1\right) & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 
+        \Phi_{(t,t_0)} = \left(\begin{array}{cc|cc}
+            \cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) & 0 \\ 
+            -2n\cos(n\tau) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &0\\ &&& \\ \hline &&& \\
+            -n\sin(n\tau) & 0 & \cos(n\tau) & 0 \\
+            -2n\cos(n\tau) & 0 & \displaystyle-\frac{2}{n}\left(n\sin(n\tau)+1\right) & 0 
+        \end{array}\right) = \begin{pmatrix}
+            \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
+            \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
+        \end{pmatrix} \\ \\ 
+    \text{z-direction:} \\
+    \Phi_{(t,t_0)} = \begin{pmatrix}
+        \cos(n\tau) & \displaystyle\frac{1}{n}\sin(n\tau) \\
+        -n\sin(n\tau) & \cos(n\tau)
+    \end{pmatrix}
+    \end{array}
+\end{equation}
+Where:
+\begin{equation*}
+    \tau = t-t_0
+\end{equation*}
+Desired:
+\begin{equation}
+    \begin{matrix}
+        \begin{pmatrix}
+            x1\\
+            y1\\
+            x2\\
+            y2
+        \end{pmatrix}(t_1) & = & \vec{0} \\\\
+        \begin{pmatrix}
+            z1\\
+            z2
+        \end{pmatrix}(t_1) & = & \vec{0}
+    \end{matrix}
+\end{equation}
+% As the lecture shows, for a maneuver with $\Delta v_x = 0$, the maneuver time equals one orbital period $t_1 = T_1$. The transition matrix quadrants for $n\tau = 2\pi$:
+% \begin{equation}
+%     \begin{array}{lcl}
+%         \Phi_{11}=\begin{pmatrix}
+%             1 & 0 \\
+%             -2n & 1
+%         \end{pmatrix} && \Phi_{12}=\begin{pmatrix}
+%             0 & 0 \\
+%             0 & 0
+%         \end{pmatrix} \\\\
+%         \Phi_{21}=\begin{pmatrix}
+%             0 & 0 \\
+%             -2n & 0
+%         \end{pmatrix} && \Phi_{22}=\begin{pmatrix}
+%             1 & 0 \\
+%             \displaystyle-\frac{2}{n} & 0
+%         \end{pmatrix}
+%     \end{array}
+% \end{equation}
+The required velocity components are found from the first 2 lines of $\vec{x}(t_1)=\Phi_(t_1,0)\vec{x(0)}$:
+\begin{equation}
+    \begin{pmatrix}
+        x_{(t_1)}\\y_{(t_1)}
+    \end{pmatrix} = \vec{0} = \Phi_{11(t_1, 0)}\begin{pmatrix}
+        x(0)\\y(0)
+    \end{pmatrix} + \Phi_{12(t_1,0)}\begin{pmatrix}
+        \dot{x}_{req} \\
+        \dot{y}_{req}
+    \end{pmatrix}
+\end{equation}
+\begin{equation*}
+    \Downarrow
+\end{equation*}
+\begin{equation}
+    \begin{pmatrix}
+        \dot{x}_{req} \\
+        \dot{y}_{req}
+    \end{pmatrix} = -\Phi_{12(t_1,0)}^{-1}\Phi_{11(t_1,0)}\begin{pmatrix}
+        x\\y
+    \end{pmatrix} \equiv \mathbf{C}^*_{(t_1,0)} \begin{pmatrix}
+        x\\y
+    \end{pmatrix}
+\end{equation}
+The terminal velocity is determined from the last two rows of $\vec{x}(t_1)=\Phi_(t_1,0)\vec{x(0)}$:
+\begin{equation}
+    \begin{pmatrix}
+        \dot{x}_{t_1}\\\dot{y}_{t_1}
+    \end{pmatrix} = \Phi_{21(t_1,0)}\begin{pmatrix}
+        x\\y
+    \end{pmatrix} + \Phi_{22(t_1,0)}\begin{pmatrix}
+        \dot{x}_{req} \\
+        \dot{y}_{req}
+    \end{pmatrix}
+\end{equation}
+Because we can't apply a velocity pulse in the x direction, we set $\dot{x}_{t_1}$ to be zero. Using \emph{MatLab}, the first equation is:
+\begin{equation}
+    abc
+\end{equation}
+
 
 
 \end{document}
