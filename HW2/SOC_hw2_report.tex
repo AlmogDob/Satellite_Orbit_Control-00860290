@@ -1,15 +1,15 @@
 \documentclass[11pt, a4paper]{article}
 \usepackage{amsmath, amssymb, titling}
-\usepackage[margin=2cm]{geometry}
-
-\renewcommand\maketitlehooka{\null\mbox{}\vfill}
-\renewcommand\maketitlehookd{\vfill\null}
-% \usepackage{enumitem}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
 
 % \usepackage{minted}
-% \usepackage{xcolor}
+\usepackage{xcolor}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
 
 \title{Satellite Orbit Control \\ HW2}
 \author{Almog Dobrescu\\\\ID 214254252}
@@ -38,7 +38,7 @@
 \begin{equation*}
     \alpha=\Delta i = 0.01^\circ
 \end{equation*}
-In CW fram with origin at Satellite \#1 and at $t=0$:
+In CW frame with origin at Satellite \#1 and at $t=0$:
 \begin{equation*}
     \begin{matrix}
     \begin{pmatrix}
@@ -94,31 +94,11 @@ The solution without external forces (i.e. $\vec{f}=\vec{0}$):
         \displaystyle z(t)=z_0\cos(nt)+\frac{\dot{z}_0}{n}\sin(nt)
     \end{array}\right.
 \end{equation}
-Because the two satellite have the same period then the motion is periodical. The condition for periodical motion is:
+Because the two satellite have the same period, then in CW fram, it is a no-drift orbit:
 \begin{equation}
-    \dot{y}_0=-2nx_0
-\end{equation}
-So the equations of motion becomes:
-\begin{equation}
-    \left\{\begin{array}{l}
-        \displaystyle x(t) = x_0\cos(nt) + \frac{\dot{x}_0}{n}\sin(nt) \\
-        \displaystyle y(t) = y_0 + \frac{2}{n}\left(\cos(nt)-1\right)\cdot\dot{x}_0 -2x_0\sin(nt) \\
-        \displaystyle z(t)=z_0\cos(nt)+\frac{\dot{z}_0}{n}\sin(nt)
-    \end{array}\right.
-\end{equation}
-% The required maneuver time is the time required for the position in the \emph{z} direction to become zero:
-% \begin{align}
-%     z_0\cos(nt)+\frac{\dot{z}_0}{n}\sin(nt) &= 0 \\
-%     \cos(nt)+\frac{\dot{z}_0}{n}\sin(nt) &= 0 \\
-%     \sqrt{1^2+\frac{\dot{z}}{n}}\cos\left(nt + \arctan\left(\frac{\displaystyle -\frac{\dot{z}_0}{n}}{1}\right)\right) = 0 \\
-%     nt +\arctan\left(\frac{\displaystyle -\frac{\dot{z}_0}{n}}{1}\right) = \frac{\pi}{2} + \pi k
-% \end{align}
-\begin{equation}
-    \left\{\begin{array}{l}
-        \displaystyle\dot{x}(t) = -nx_0\sin(nt) + \dot{x}_0\cos(nt) \\
-        \displaystyle\dot{y}(t) = -\frac{2\dot{x}_0}{n}\left(n\sin(nt)+1\right)-2nx_0\cos(nt) \\
-        \dot{z}(t) = -nz_0\sin(nt) + \dot{z}_0\cos(nt)
-    \end{array}\right.
+    \begin{array}{l}
+        \dot{y}_0=-2nx_0
+    \end{array}
 \end{equation}
 From the angle between the plains we can claculate $\dot{z}_2(0)$:
 \begin{align}
@@ -126,6 +106,41 @@ From the angle between the plains we can claculate $\dot{z}_2(0)$:
     \frac{\dot{z}_2(0)}{n} &= \underbrace{-}_{\displaystyle\dot{z}_2(0)<0}\sqrt{\left(a_1\cdot\tan(\alpha)\right)^2-z_2(0)^2} \\
     \frac{\dot{z}_2(0)}{n} &= -0.7426;
 \end{align}
+Because we can't apply a velocity pulse in the x direction, $\dot{x}_2(0) = 0$. The CW frame is therefor:
+\begin{equation}
+    \begin{matrix}
+    \begin{pmatrix}
+        x_2(0)=0 \\ y_2(0)=-1 \\ z_2(0)=1
+    \end{pmatrix}\left[km\right] &&
+    \begin{pmatrix}
+        \dot{x}_2(0)=0 \\ \dot{y}_2(0) =0 \\ \dot{z}_2(0)=-0.7426
+    \end{pmatrix}\left[\displaystyle\frac{km}{sec}\right]
+    \end{matrix}
+\end{equation}
+% So the equations of motion becomes:
+% \begin{equation}
+%     \left\{\begin{array}{l}
+%         \displaystyle x(t) = x_0\cos(nt) + \frac{\dot{x}_0}{n}\sin(nt) \\
+%         \displaystyle y(t) = y_0 + \frac{2}{n}\left(\cos(nt)-1\right)\cdot\dot{x}_0 -2x_0\sin(nt) \\
+%         \displaystyle z(t)=z_0\cos(nt)+\frac{\dot{z}_0}{n}\sin(nt)
+%     \end{array}\right.
+% \end{equation}
+%\begin{equation}
+%     \left\{\begin{array}{l}
+%         \displaystyle\dot{x}(t) = -nx_0\sin(nt) + \dot{x}_0\cos(nt) \\
+%         \displaystyle\dot{y}(t) = -\frac{2\dot{x}_0}{n}\left(n\sin(nt)+1\right)-2nx_0\cos(nt) \\
+%         \dot{z}(t) = -nz_0\sin(nt) + \dot{z}_0\cos(nt)
+%     \end{array}\right.
+% \end{equation}
+
+% The required maneuver time is the time required for the position in the \emph{z} direction to become zero:
+% \begin{align}
+%     z_0\cos(nt)+\frac{\dot{z}_0}{n}\sin(nt) &= 0 \\
+%     \cos(nt)+\frac{\dot{z}_0}{n}\sin(nt) &= 0 \\
+%     \sqrt{1^2+\frac{\dot{z}}{n}}\cos\left(nt + \arctan\left(\frac{\displaystyle -\frac{\dot{z}_0}{n}}{1}\right)\right) = 0 \\
+%     nt +\arctan\left(\frac{\displaystyle -\frac{\dot{z}_0}{n}}{1}\right) = \frac{\pi}{2} + \pi k
+% \end{align}
+
 The CW equations in state-space form:
 \begin{equation}
     \begin{matrix}
@@ -140,23 +155,23 @@ The CW equations in state-space form:
         \end{matrix} && z2 = \dot{z}
     \end{matrix}
 \end{equation}
-The homogeneous solution with no drift condition:
+The homogeneous solution:
 \begin{equation}
     \vec{x}(t) = \Phi_{(t,t_0)}\vec{x}_0
 \end{equation}
 \begin{equation}
     \begin{array}{l}
         \text{x-y plane:} \\
-        % \Phi_{(t,t_0)} = \left(\begin{array}{cc|cc}
-        %     4-3\cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) \\ 
-        %     6\left(\sin(n\tau)-n\tau\right) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau-3n\tau)\right)\\ &&& \\ \hline &&& \\
-        %     3n\cdot\sin(n\tau) & 0 & \cos(n\tau) & 2\sin(n\tau) \\
-        %     6n\left(\cos(n\tau)-1\right) & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 
         \Phi_{(t,t_0)} = \left(\begin{array}{cc|cc}
-            \cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) & 0 \\ 
-            -2n\cos(n\tau) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &0\\ &&& \\ \hline &&& \\
-            -n\sin(n\tau) & 0 & \cos(n\tau) & 0 \\
-            -2n\cos(n\tau) & 0 & \displaystyle-\frac{2}{n}\left(n\sin(n\tau)+1\right) & 0 
+            4-3\cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) \\ 
+            6\left(\sin(n\tau)-n\tau\right) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau-3n\tau)\right)\\ &&& \\ \hline &&& \\
+            3n\sin(n\tau) & 0 & \cos(n\tau) & 2\sin(n\tau) \\
+            6n\left(\cos(n\tau)-1\right) & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 
+        % \Phi_{(t,t_0)} = \left(\begin{array}{cc|cc}
+        %     \cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) & 0 \\ 
+        %     -2n\cos(n\tau) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &0\\ &&& \\ \hline &&& \\
+        %     -n\sin(n\tau) & 0 & \cos(n\tau) & 0 \\
+        %     -2n\cos(n\tau) & 0 & \displaystyle-\frac{2}{n}\left(n\sin(n\tau)+1\right) & 0 
         \end{array}\right) = \begin{pmatrix}
             \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
             \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
@@ -225,9 +240,9 @@ The required velocity components are found from the first 2 lines of $\vec{x}(t_
         \dot{x}_{req} \\
         \dot{y}_{req}
     \end{pmatrix} = -\Phi_{12(t_1,0)}^{-1}\Phi_{11(t_1,0)}\begin{pmatrix}
-        x\\y
+        x(0)\\y(0)
     \end{pmatrix} \equiv \mathbf{C}^*_{(t_1,0)} \begin{pmatrix}
-        x\\y
+        x(0)\\y(0)
     \end{pmatrix}
 \end{equation}
 The terminal velocity is determined from the last two rows of $\vec{x}(t_1)=\Phi_(t_1,0)\vec{x(0)}$:
@@ -235,17 +250,25 @@ The terminal velocity is determined from the last two rows of $\vec{x}(t_1)=\Phi
     \begin{pmatrix}
         \dot{x}_{t_1}\\\dot{y}_{t_1}
     \end{pmatrix} = \Phi_{21(t_1,0)}\begin{pmatrix}
-        x\\y
+        x(0)\\y(0)
     \end{pmatrix} + \Phi_{22(t_1,0)}\begin{pmatrix}
         \dot{x}_{req} \\
         \dot{y}_{req}
     \end{pmatrix}
 \end{equation}
-Because we can't apply a velocity pulse in the x direction, we set $\dot{x}_{t_1}$ to be zero. Using \emph{MatLab}, the first equation is:
+Because we can't apply a velocity pulse in the x direction, we set $\dot{x}_{t_1}$ to be zero. Using \emph{MatLab}, the first equation after substituting the initial conditions is:
 \begin{equation}
-    abc
+    \frac{\displaystyle2\pi\left(\cos\left(\frac{\pi\tau}{3000}\right)-1\right)}{\displaystyle24000\cos\left(\frac{\pi\tau}{3000}\right)+3\tau\pi\sin\left(\frac{\pi\tau}{3000}\right)-24000} = 0
 \end{equation}
+\begin{align}
+    \cos\left(\frac{\pi\tau}{3000}\right) &= 1 \\
+    \frac{\pi\tau}{3000} &= 2\pi \\
+    \pi\tau &= 6000\pi \\
+    \tau &= 6000
+\end{align}
+\\
+$$\colorbox{yellow}{$t_1 = \tau = 6000\left[sec\right]$\hspace{1cm}(exactly on period)}$$
 
-
+\section{B}
 
 \end{document}
