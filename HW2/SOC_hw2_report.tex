@@ -438,11 +438,48 @@ So the velocity in the \emph{z} direction when $z=0$:
 \section{C}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/3D plot.png}
+    \includegraphics[width=0.9\textwidth]{images/3D plot.png}
     \caption{3D figure of the orbit trajectory along with the Earth drawing}
     \label{fig:3D-plot}
 \end{figure}
 
+\section{D}
+\begin{equation*}
+    \begin{matrix}
+        \left(\begin{array}{c}
+            \Delta x_m \\ \Delta y_m \\ \Delta z_m
+        \end{array}\right) = \left(\begin{array}{c}
+            \pm 1 \\
+            \pm 1 \\
+            \pm 1
+        \end{array}\right)\cdot10^{-3}\left[km\right] &&&& \left(\begin{array}{c}
+            \Delta \dot{x}_m \\ \Delta \dot{y}_m \\ \Delta \dot{z}_m
+        \end{array}\right) = \left(\begin{array}{c}
+            \pm 1 \\
+            \pm 1 \\
+            \pm 1
+        \end{array}\right)\displaystyle\cdot10^{-5}\left[\frac{km}{sec}\right] \\
+        &&\tau = 6000&& 
+    \end{matrix}
+\end{equation*}
+The worst case miss distance is the sum of the absolute values:
+\begin{equation}
+    \left\{\begin{array}{l}
+        \displaystyle\left.\Delta x_f\right|_\text{worst case} = \left|\Delta x_m\left(4-3\cos(n\tau)\right)\right| + \left|\frac{\Delta\dot{x}_m}{n}\sin(n\tau)\right| + \left|\frac{2\Delta\dot{y}_m}{n}\left(1-\cos(n\tau)\right)\right| \\
+        \displaystyle\left.\Delta y_f\right|_\text{worst case} = \left|6\Delta x_m\left(\sin(n\tau)-n\tau\right)\right| + \left|\Delta y_m\right| + \left|\frac{2\Delta\dot{x}_0}{n}\left(\cos(n\tau)-1\right)\right| + \left|\frac{\Delta\dot{y}_m}{n}\left(4\sin(n\tau)-3n\tau\right)\right| \\
+        \displaystyle\left.\Delta z_f\right|_\text{worst case} = \left|\Delta z_m\cos(n\tau)\right| + \left|\frac{\Delta\dot{z}_m}{n}\sin(n\tau)\right|
+    \end{array}\right.
+\end{equation}
+\begin{equation*}
+    \Downarrow
+\end{equation*}
+\begin{equation}
+    \left\{\begin{array}{l}
+        \displaystyle\left.\Delta x_f\right|_\text{worst case} = \\
+        \displaystyle\left.\Delta y_f\right|_\text{worst case} = \\ 
+        \displaystyle\left.\Delta z_f\right|_\text{worst case} = 
+    \end{array}\right.
+\end{equation}
 
 
 
