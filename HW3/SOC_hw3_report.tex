@@ -1,0 +1,71 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{amsmath, amssymb, titling}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+
+% \usepackage{minted}
+\usepackage{xcolor}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\title{Satellite Orbit Control \\ HW3}
+\author{Almog Dobrescu\\\\ID 214254252}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+\tableofcontents
+\vfil
+\listoffigures
+\newpage
+
+\section{Given}
+\begin{equation*}
+    \begin{matrix}
+        T_1=100\left[min\right] = 6\cdot10^3\left[sec\right] && T_2 = T_1 = 6\cdot10^3\left[sec\right] \\
+        e_1 = 0 && e_2 = 0 \\
+        a_1 = \sqrt[3]{\frac{\mu T_1^2}{4\pi^2}} = 7.1366\cdot10^3\left[km\right] && a_2 = a_1 = 7.1366\cdot10^3\left[km\right]
+    \end{matrix}\\
+\end{equation*}
+\begin{equation*}
+    \alpha=\Delta i = 0.01^\circ
+\end{equation*}
+In CW frame with origin at Satellite \#1 and at $t=0$:
+\begin{equation*}
+    \begin{matrix}
+    \begin{pmatrix}
+        x_2(0)=0 \\ y_2(0)=-1 \\ z_2(0)=1
+    \end{pmatrix}\left[km\right] &&
+    \begin{pmatrix}
+        \dot{x}_2(0)=?? \\ \dot{y}_2(0) = ?? \\ \dot{z}_2(0)<0
+    \end{pmatrix}
+    \end{matrix}
+\end{equation*}
+Desired:
+\begin{equation*}
+    \begin{matrix}
+    \begin{pmatrix}
+        x_2(t_1)=0 \\ y_2(t_1)=0 \\ z_2(t_1)=0
+    \end{pmatrix} &&
+    \begin{pmatrix}
+        \dot{x}_2(t_1)=0 \\ \dot{y}_2(t_1)=0 \\ \dot{z}_2(t_1)=0
+    \end{pmatrix}
+    \end{matrix}
+\end{equation*}
+Limitations:
+\begin{equation*}
+    a_\text{max} = 0.008[]
+\end{equation*}
+
+\section{A}
+
+
+\end{document}
