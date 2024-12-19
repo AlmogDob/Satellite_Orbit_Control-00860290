@@ -164,6 +164,47 @@ Where:
         \end{pmatrix}
     \end{matrix}
 \end{equation}
+\subsection{The homogeneous solution}
+\begin{equation}
+    \vec{x} = \begin{pmatrix}
+        x & y & z & \dot{x} & \dot{y} & \dot{z}
+    \end{pmatrix}^T
+\end{equation}
+\begin{equation}
+    \begin{array}{l}
+        \text{x-y plane:} \\
+        \Phi_{(t,t_0)} = \left(\begin{array}{ccc|ccc}
+            4-3\cos(n\tau) & 0 & \cos\left(n\tau\right) &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) & \frac{1}{n}\sin\left(n\tau\right) \\ 
+            6\left(\sin(n\tau)-n\tau\right) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau)-3n\tau\right)\\ &&& \\ \hline &&& \\
+            3n\sin(n\tau) & 0 & \cos(n\tau) & 2\sin(n\tau) \\
+            6n\left(\cos(n\tau)-1\right) & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 
+        \end{array}\right) = \begin{pmatrix}
+            \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
+            \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
+        \end{pmatrix} \\ \\ 
+    \text{z-direction:} \\
+    \Phi_{(t,t_0)} = \begin{pmatrix}
+        \cos(n\tau) & \displaystyle\frac{1}{n}\sin(n\tau) \\
+        -n\sin(n\tau) & \cos(n\tau)
+    \end{pmatrix}
+    \end{array}
+\end{equation}
+Where:
+\begin{equation*}
+    \tau = t-t_0
+\end{equation*}
+So the full homogeneous solution in state space from:
+\begin{equation}
+    \Phi_{\left\{t,t_0\right\}} = \left(\begin{array}{cc|cc}
+            4-3\cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) \\ 
+            6\left(\sin(n\tau)-n\tau\right) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau)-3n\tau\right)\\ &&& \\ \hline &&& \\
+            3n\sin(n\tau) & 0 & \cos(n\tau) & 2\sin(n\tau) \\
+            6n\left(\cos(n\tau)-1\right) & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 
+        \end{array}\right) = \begin{pmatrix}
+            \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
+            \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
+        \end{pmatrix}
+\end{equation}
 
 % \begin{equation}
 %     \begin{matrix}
