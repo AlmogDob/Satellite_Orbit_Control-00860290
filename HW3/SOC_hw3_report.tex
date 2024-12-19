@@ -66,7 +66,7 @@ In CW frame with origin at Satellite \#1 and at $t=0$:
 \end{equation*}
 
 \subsection{Limitations}
-The engine can't create trust in the \emph{x} direation and:
+The engine can't create thrust in the \emph{x} direation and:
 \begin{equation*}
     a_\text{max} = 8\cdot10^{-6}\left[\frac{\mathrm{km}}{\mathrm{sec}^2}\right]
 \end{equation*}
@@ -322,18 +322,66 @@ By solving this system numerically, we obtain the approach trajectory.
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/graph3.png}
+    \includegraphics[width=0.9\textwidth]{images/graph3.png}
     \caption{Thrust acceleration components and total thrust acceleration over time}
     \label{fig:accel_over_time}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{images/graph4.png}
+    \includegraphics[width=0.9\textwidth]{images/graph4.png}
     \caption{Total $\Delta v$ over time}
     \label{fig:delta_v_over_time}
 \end{figure}
+We can see that we indeed acomplished the design criteria:
+\begin{itemize}
+    \item The thrust doesn't exceed the maximum available thrust.
+    \item The miss distance at the final desired time is less than $1[\mathrm{m}]\ \left(2.35517\cdot10^{-13}\left[\mathrm{m}\right]\right)$.
+\end{itemize}
 
 \newpage
 \section{case B}
+The velocity to be gained:
+\begin{equation}
+    \vec{v}_g=\vec{v}_r-\vec{v}
+\end{equation}
+The equation of motion:
+\begin{equation}
+    \frac{d\vec{v}}{dt} = \vec{g}_{\left(\vec{r}\right)}+\vec{a}_T
+\end{equation}
+The equation of motion for the velocity to be gained:
+\begin{equation}
+    \frac{d\vec{v}_g}{dt} = \frac{d\vec{v}_r}{dt} - \frac{d\vec{v}}{dt} = \frac{d\vec{v}_r}{dt} - \vec{g}_{\left(\vec{r}\right)} - \vec{a}_T
+\end{equation}
+$\vec{v}_r$ is a function of time and space, so:
+\begin{equation*}
+    \frac{d\vec{v}_{r(t,\vec{r})}}{dt} = \frac{\partial\vec{v}_r}{\partial t} + \frac{\partial \vec{v}_r}{\partial\vec{r}}\underbrace{\frac{d\vec{r}}{dt}}_{\vec{v}} = \frac{\partial\vec{v}_r}{\partial t} + \frac{\partial \vec{v}_r}{\partial\vec{r}}\left(\vec{v}_r-\vec{v}_g\right)
+\end{equation*}
+The required velocity $\vec{v}_r$ also fulfill the equation of motion with no thrust:
+\begin{equation*}
+    \frac{d\vec{v}_r}{dt} = \frac{\partial\vec{v}_r}{\partial t} + \frac{\partial\vec{v}_r}{\partial \vec{r}}\vec{v}_r = \vec{g}_r
+\end{equation*}
+so:
+\begin{equation}
+    \frac{d\vec{v}_r}{dt} = \vec{g}_r - \frac{\partial\vec{v}_r}{\partial\vec{r}}\vec{v}_g
+\end{equation}
+The equation of motion becomes:
+\begin{equation}
+    \frac{d\vec{v}_g}{dt} =  \vec{g}_r - \frac{\partial\vec{v}_r}{\partial\vec{r}}\vec{v}_g -\vec{g}_{(\vec{r})} -\vec{a}_T = -\underbrace{\frac{\partial\vec{v}_r}{\partial\vec{r}}}_{C^*}\vec{v}_g-\vec{a}_T
+\end{equation}
+where $C^*$ is:
+
+
+\vspace{1cm}
+The Cross-Product fixed thrust control law:
+\begin{equation}
+    \vec{v}_g\parallel\frac{d\vec{v}_g}{dt}
+\end{equation}
+\begin{equation*}
+    \Downarrow
+\end{equation*}
+\begin{equation*}
+    \frac{d\vec{v}_g}{dt}\times\vec{v}_g=0
+\end{equation*}
+
 
 \end{document}
