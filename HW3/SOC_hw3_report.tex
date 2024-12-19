@@ -132,6 +132,39 @@ Where:
     \end{matrix}
 \end{equation}
 
+\subsection{x-y-z}
+The equations of motion in state space form are therefor:
+\begin{equation}
+    \vec{x} = \begin{pmatrix}
+        x\\\dot{x}\\y\\\dot{y}\\z\\\dot{z}
+    \end{pmatrix}
+\end{equation}
+\begin{equation}
+    \dot{\vec{x}}=F\vec{x}+G\vec{f}
+\end{equation}
+Where:
+\begin{equation}
+    \begin{matrix}
+        F=\begin{pmatrix}
+            0 & 1 & 0 & 0 & 0 & 0 \\
+            3n^2 & 0 & 0 & 2n & 0 & 0 \\
+            0 & 0 & 0 & 1 & 0 & 0 \\
+            0 & -2n & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 & -n^2 & 0 
+        \end{pmatrix} && G=\begin{pmatrix}
+            0 & 0 & 0\\
+            1 & 0 & 0\\
+            0 & 0 & 0\\
+            0 & 1 & 0\\
+            0 & 0 & 0\\
+            0 & 0 & 1
+        \end{pmatrix} && f=\begin{pmatrix}
+            f_x\\f_y\\f_z
+        \end{pmatrix}
+    \end{matrix}
+\end{equation}
+
 % \begin{equation}
 %     \begin{matrix}
 %         \text{x-y plane:} && \text{z-direction:} \\
@@ -195,48 +228,17 @@ Where:
 
 \newpage
 \section{case A}
-\begin{equation}
-    \vec{x} = \begin{pmatrix}
-        x\\\dot{x}\\y\\\dot{y}\\z\\\dot{z}
-    \end{pmatrix}
-\end{equation}
-\begin{equation}
-    \dot{\vec{x}}=F\vec{x}+G\vec{f}
-\end{equation}
-Where:
-\begin{equation}
-    \begin{matrix}
-        F=\begin{pmatrix}
-            0 & 1 & 0 & 0 & 0 & 0 \\
-            3n^2 & 0 & 0 & 2n & 0 & 0 \\
-            0 & 0 & 0 & 1 & 0 & 0 \\
-            0 & -2n & 0 & 0 & 0 & 0 \\
-            0 & 0 & 0 & 0 & 0 & 1 \\
-            0 & 0 & 0 & 0 & -n^2 & 0 
-        \end{pmatrix} && G=\begin{pmatrix}
-            0 & 0 & 0\\
-            1 & 0 & 0\\
-            0 & 0 & 0\\
-            0 & 1 & 0\\
-            0 & 0 & 0\\
-            0 & 0 & 1
-        \end{pmatrix} && f=\begin{pmatrix}
-            f_x\\f_y\\f_z
-        \end{pmatrix}
-    \end{matrix}
-\end{equation}
-
-\noindent The desired maneuver time is $2000\left[\mathrm{sec}\right]$. The desired approach trajectory is a straight line with constant velocity from the initial point to the origin. \\
+The desired maneuver time is $2000\left[\mathrm{sec}\right]$. The desired approach trajectory is a straight line with constant velocity from the initial point to the origin. \\
 From geometric considerations, the required velocity on the straight line is:
 
 \begin{equation}
-    \dot{\vec{x}}_{req} = \begin{pmatrix}
+    \colorbox{yellow}{$\dot{\vec{x}}_{req}$} = \begin{pmatrix}
         \displaystyle\frac{x_f-x_0}{t_f}\\\\
         \displaystyle\frac{y_f-y_0}{t_f}\\\\
         \displaystyle\frac{z_f-z_0}{t_f}
-    \end{pmatrix} = \begin{pmatrix}
+    \end{pmatrix}\colorbox{yellow}{$ = \begin{pmatrix}
        0\\5\\-5
-    \end{pmatrix}\cdot10^{-4}\left[\frac{\mathrm{km}}{\mathrm{sec}^2}\right]
+    \end{pmatrix}\cdot10^{-4}\left[\frac{\mathrm{km}}{\mathrm{sec}^2}\right]$}
 \end{equation}
 Which mean that the initial pulse:
 \begin{equation}
@@ -250,6 +252,7 @@ and the final pulse:
         0\\-5\\5
     \end{pmatrix}\cdot10^{-4}\left[\frac{\mathrm{km}}{\mathrm{sec}^2}\right]$}
 \end{equation}
+
 
 
 % The target trajectory:
@@ -291,11 +294,11 @@ By substituting the constraints in the CW equations we get:
     \end{array}\right.
 \end{equation}
 \begin{equation}
-    \vec{a} = \vec{f} = \begin{pmatrix}
+    \colorbox{yellow}{$\vec{a} = \vec{f} = \begin{pmatrix}
         -2n\cdot0.5\cdot10^{-3}\\
         0\\
         n^2z
-    \end{pmatrix}
+    \end{pmatrix}$}
 \end{equation}
 Check that the maximum acceleration hasn't been reached:
 \begin{equation}
@@ -304,6 +307,33 @@ Check that the maximum acceleration hasn't been reached:
         |\vec{a}| < 1.5163\cdot10^{-6} < 8\cdot10^{-6} \text{\hspace{1cm}\LARGE$\surd$}
     \end{array}
 \end{equation}
+By solving this system numerically, we obtain the approach trajectory.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph1.png}
+    \caption{3D figure of the orbit trajectory}
+    \label{fig:3D-plot}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph2.png}
+    \caption{2D figure of the position over time}
+    \label{fig:2D-plot_over_time}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph3.png}
+    \caption{Thrust acceleration components and total thrust acceleration over time}
+    \label{fig:accel_over_time}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph4.png}
+    \caption{Total $\Delta v$ over time}
+    \label{fig:delta_v_over_time}
+\end{figure}
 
+\newpage
+\section{case B}
 
 \end{document}
