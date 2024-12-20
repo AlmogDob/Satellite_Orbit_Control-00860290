@@ -136,8 +136,8 @@ Where:
 The equations of motion in state space form are therefor:
 \begin{equation}
     \vec{x} = \begin{pmatrix}
-        x\\\dot{x}\\y\\\dot{y}\\z\\\dot{z}
-    \end{pmatrix}
+        x & \dot{x} & y & \dot{y} & z & \dot{z}
+    \end{pmatrix}^T
 \end{equation}
 \begin{equation}
     \dot{\vec{x}}=F\vec{x}+G\vec{f}
@@ -173,15 +173,15 @@ Where:
 \begin{equation}
     \begin{array}{l}
         \text{x-y plane:} \\
-        \Phi_{(t,t_0)} = \left(\begin{array}{ccc|ccc}
-            4-3\cos(n\tau) & 0 & \cos\left(n\tau\right) &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) & \frac{1}{n}\sin\left(n\tau\right) \\ 
+        \Phi_{\left\{t,t_0\right\}} = \left(\begin{array}{cc|cc}
+            4-3\cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) \\ 
             6\left(\sin(n\tau)-n\tau\right) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau)-3n\tau\right)\\ &&& \\ \hline &&& \\
             3n\sin(n\tau) & 0 & \cos(n\tau) & 2\sin(n\tau) \\
             6n\left(\cos(n\tau)-1\right) & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 
         \end{array}\right) = \begin{pmatrix}
             \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
             \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
-        \end{pmatrix} \\ \\ 
+        \end{pmatrix} \\ \\
     \text{z-direction:} \\
     \Phi_{(t,t_0)} = \begin{pmatrix}
         \cos(n\tau) & \displaystyle\frac{1}{n}\sin(n\tau) \\
@@ -194,16 +194,20 @@ Where:
     \tau = t-t_0
 \end{equation*}
 So the full homogeneous solution in state space from:
+\begin{equation*}
+    \Phi_{(t,t_0)} = \left(\begin{array}{ccc|ccc}
+        4-3\cos(n\tau) & 0 & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) & 0 \\ 
+        6\left(\sin(n\tau)-n\tau\right) & 1 & 0 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau)-3n\tau\right) & 0 \\ 0 & 0 & \cos(n\tau) & 0 & 0 & \displaystyle\frac{1}{n}\sin(n\tau) \\ &&& \\ \hline &&& \\
+        3n\sin(n\tau) & 0 & 0 & \cos(n\tau) & 2\sin(n\tau) & 0 \\
+        6n\left(\cos(n\tau)-1\right) & 0 & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 & 0 \\
+        0 & 0 & -n\sin(n\tau) & 0 & 0 & \cos(n\tau) 
+    \end{array}\right) =  
+\end{equation*}
 \begin{equation}
-    \Phi_{\left\{t,t_0\right\}} = \left(\begin{array}{cc|cc}
-            4-3\cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) \\ 
-            6\left(\sin(n\tau)-n\tau\right) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau)-3n\tau\right)\\ &&& \\ \hline &&& \\
-            3n\sin(n\tau) & 0 & \cos(n\tau) & 2\sin(n\tau) \\
-            6n\left(\cos(n\tau)-1\right) & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 
-        \end{array}\right) = \begin{pmatrix}
-            \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
-            \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
-        \end{pmatrix}
+    \begin{pmatrix}
+        \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
+        \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
+    \end{pmatrix} 
 \end{equation}
 
 % \begin{equation}
