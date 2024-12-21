@@ -66,7 +66,7 @@ In CW frame with origin at Satellite \#1 and at $t=0$:
 \end{equation*}
 
 \subsection{Limitations}
-The engine can't create thrust in the \emph{x} direation and:
+% The engine can't create thrust in the \emph{x} direation and:
 \begin{equation*}
     a_\text{max} = 8\cdot10^{-6}\left[\frac{\mathrm{km}}{\mathrm{sec}^2}\right]
 \end{equation*}
@@ -414,7 +414,30 @@ The equation of motion becomes:
     \frac{d\vec{v}_g}{dt} =  \vec{g}_r - \frac{\partial\vec{v}_r}{\partial\vec{r}}\vec{v}_g -\vec{g}_{(\vec{r})} -\vec{a}_T = -\underbrace{\frac{\partial\vec{v}_r}{\partial\vec{r}}}_{C^*}\vec{v}_g-\vec{a}_T
 \end{equation}
 where $C^*$ is:
-
+\begin{equation*}
+    \begin{pmatrix}
+        x_f\\y_f\\z_f
+    \end{pmatrix} = \vec{0} = \Phi_{11(t_f,0)}\begin{pmatrix}
+        x_0\\y_0\\z_0
+    \end{pmatrix} + \Phi_{12(t_f,0)}\begin{pmatrix}
+        \dot{x}_{req}\\\dot{y}_{req}\\\dot{z}_{req}
+    \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+    \begin{pmatrix}
+        \dot{x}_{req}\\\dot{y}_{req}\\\dot{z}_{req}
+    \end{pmatrix} = -\Phi_{12(t_f,0)}^{-1}\Phi_{11(t_f,0)}\begin{pmatrix}
+        x_0\\y_0\\z_0
+    \end{pmatrix} = C^*_{(t_f,0)}\begin{pmatrix}
+        x_0\\y_0\\z_0
+    \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+    \Downarrow
+\end{equation*}
+\begin{equation*}
+    C^*_{(t_f,0)} = -\Phi_{12(t_f,0)}^{-1}\Phi_{11(t_f,0)}
+\end{equation*}
 
 \vspace{1cm}
 The Cross-Product fixed thrust control law:
@@ -426,6 +449,72 @@ The Cross-Product fixed thrust control law:
 \end{equation*}
 \begin{equation*}
     \frac{d\vec{v}_g}{dt}\times\vec{v}_g=0
+\end{equation*}
+\begin{equation}
+    \left(-C^*\vec{v}_g-\vec{a}_T\right)\times\vec{v}_g=0
+\end{equation}
+\begin{equation}
+    \vec{a}_T\times\vec{v}_g=\underbrace{-\left(C^*\vec{v}_g\right)}_{\vec{p}}\times\vec{v}_g
+\end{equation}
+Multypling on the left by $\vec{v}_g$:
+\begin{equation}
+    \left(\vec{a}_T\times\vec{v}_g\right)\times\vec{v}_g = \left(\vec{p}\times\vec{v}_g\right)\times\vec{v_g}
+\end{equation}
+Expand according to:
+\begin{equation*}
+    \left(\vec{a}\times\vec{b}\right)\times\vec{c} = \left(\vec{a}\cdot \vec{c}\right)\vec{b} - \left(\vec{b}\cdot\vec{c}\right)\vec{a}
+\end{equation*}
+\begin{equation}
+    \left(\vec{a}_T\cdot\vec{v}_g\right)\vec{v}_g - v_g^2\vec{a}_T = \left(\vec{p}\cdot\vec{v}_g\right)\vec{v}_g - v_g^2\vec{p}
+\end{equation}
+\begin{equation*}
+    \Downarrow
+\end{equation*}
+\begin{equation}
+    \vec{a}_T=\vec{p}+\frac{1}{v_g^2}\left(\left(\vec{a}_T\cdot\vec{v}_g\right)-\left(\vec{p}\cdot\vec{v}_g\right)\right)\vec{v}_g
+\end{equation}
+Defining $q=\vec{a}_T\cdot\hat{v}_g$ as the projection of the acceleration vector on the velocity to be gained, we get:
+\begin{equation}
+    \vec{a}_T=\vec{p}+\left(q-\left(\vec{p}\cdot\hat{v}_g\right)\right)\hat{v}_g
+\end{equation}
+The terminal braking will therefor be:
+\begin{equation}
+    \Delta v_f = \vec{0} - \begin{pmatrix}
+        \dot{x}_{f}\\\dot{y}_{f}\\\dot{z}_{f}
+    \end{pmatrix} = -\left(\Phi_{21(t_f,0)}\begin{pmatrix}
+        x_0\\y_0\\z_0
+    \end{pmatrix} + \Phi_{22(t_f,0)}\begin{pmatrix}
+        \dot{x}_{req}\\\dot{y}_{req}\\\dot{z}_{req}
+    \end{pmatrix}\right)
+\end{equation}
+
+\noindent To calculate the components of the thrust vector, we need to make sure that the solution exists and it is stable. according to Lyapunov:
+\begin{equation}
+    \begin{array}{ccc}
+        \underbrace{U}_\text{Lyapunov function} = \frac{1}{2}\vec{v}_g^T\vec{v}_g \hspace{1cm} & U_{(0)}=0 & U_{\vec{v}_g}>0
+    \end{array}
+\end{equation}
+For stabllity:
+\begin{equation}
+    \dot{U}=\vec{v}_g^T\left(-C^*\vec{v}_g-\vec{a}_T\right) = -\vec{v}_g^T\left(\left(\vec{a}_T\cdot\hat{v}_g\right)-\left(\vec{p}\cdot\hat{v}_g\right)\right)\hat{v}_g < 0
+\end{equation}
+we need the expression in the parentheses to be positive. Let's assume that $|\vec{a}_T|=a_{max}$ and after squaring both sides we get:
+\begin{align}
+    a_T^2&=p^2+2\left(q-\vec{p}\cdot\hat{v}_g\right)\left(\vec{p}\cdot\hat{v}_g\right)+\left(q-\vec{p}\cdot\hat{v}_g\right)^2 \\
+    a_T^2&=p^2+q^2-\left(\vec{p}\cdot\hat{v}_g\right)^2 \\
+    q&=\left(a_{max}^2-p^2+\left(\vec{p}\cdot\hat{v}_g\right)^2\right)^{\frac{1}{2}}
+\end{align}
+
+\noindent To sum up:
+\begin{equation*}
+    \colorbox{yellow}{$\vec{a}_T=\vec{p}+\left(q-\left(\vec{p}\cdot\hat{v}_g\right)\right)\hat{v}_g$}
+\end{equation*}
+where:
+\begin{equation*}
+    \colorbox{yellow}{$ \begin{array}{l}
+        \vec{p} = -C^*\vec{v}_g \\
+        q =\left(a_{max}^2-p^2+\left(\vec{p}\cdot\hat{v}_g\right)^2\right)^{\frac{1}{2}}
+    \end{array} $}
 \end{equation*}
 
 
