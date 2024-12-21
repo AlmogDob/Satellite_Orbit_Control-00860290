@@ -356,26 +356,26 @@ By solving this system numerically, we obtain the approach trajectory.
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/graph1.png}
-    \caption{3D figure of the orbit trajectory}
-    \label{fig:3D-plot}
+    \caption{3D figure of the orbit trajectory - case A}
+    \label{fig:3D-plot-caseA}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{images/graph2.png}
-    \caption{2D figure of the position over time}
-    \label{fig:2D-plot_over_time}
+    \caption{2D figure of the position over time - case A}
+    \label{fig:2D-plot_over_time-caseA}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/graph3.png}
-    \caption{Thrust acceleration components and total thrust acceleration over time}
-    \label{fig:accel_over_time}
+    \caption{Thrust acceleration components and total thrust acceleration over time - case A}
+    \label{fig:accel_over_time-caseA}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{images/graph4.png}
-    \caption{Total $\Delta v$ over time}
-    \label{fig:delta_v_over_time}
+    \caption{Total $\Delta v$ over time - case A}
+    \label{fig:delta_v_over_time-caseA}
 \end{figure}
 We can see that we indeed acomplished the design criteria:
 \begin{itemize}
@@ -417,26 +417,26 @@ where $C^*$ is:
 \begin{equation*}
     \begin{pmatrix}
         x_f\\y_f\\z_f
-    \end{pmatrix} = \vec{0} = \Phi_{11(t_f,0)}\begin{pmatrix}
-        x_0\\y_0\\z_0
-    \end{pmatrix} + \Phi_{12(t_f,0)}\begin{pmatrix}
+    \end{pmatrix} = \vec{0} = \Phi_{11(t_f,t)}\begin{pmatrix}
+        x\\y\\z
+    \end{pmatrix} + \Phi_{12(t_f,t)}\begin{pmatrix}
         \dot{x}_{req}\\\dot{y}_{req}\\\dot{z}_{req}
     \end{pmatrix}
 \end{equation*}
 \begin{equation*}
     \begin{pmatrix}
         \dot{x}_{req}\\\dot{y}_{req}\\\dot{z}_{req}
-    \end{pmatrix} = -\Phi_{12(t_f,0)}^{-1}\Phi_{11(t_f,0)}\begin{pmatrix}
-        x_0\\y_0\\z_0
-    \end{pmatrix} = C^*_{(t_f,0)}\begin{pmatrix}
-        x_0\\y_0\\z_0
+    \end{pmatrix} = -\Phi_{12(t_f,t)}^{-1}\Phi_{11(t_f,t)}\begin{pmatrix}
+        x\\y\\z
+    \end{pmatrix} = C^*_{(t_f,t)}\begin{pmatrix}
+        x\\y\\z
     \end{pmatrix}
 \end{equation*}
 \begin{equation*}
     \Downarrow
 \end{equation*}
 \begin{equation*}
-    C^*_{(t_f,0)} = -\Phi_{12(t_f,0)}^{-1}\Phi_{11(t_f,0)}
+    C^*_{(t_f,t)} = -\Phi_{12(t_f,t)}^{-1}\Phi_{11(t_f,t)}
 \end{equation*}
 
 \vspace{1cm}
@@ -516,6 +516,37 @@ where:
         q =\left(a_{max}^2-p^2+\left(\vec{p}\cdot\hat{v}_g\right)^2\right)^{\frac{1}{2}}
     \end{array} $}
 \end{equation*}
+By solving this system numerically, we obtain the approach trajectory.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph5.png}
+    \caption{3D figure of the orbit trajectory - case B}
+    \label{fig:3D-plot-caseB}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph6.png}
+    \caption{2D figure of the position over time - case B}
+    \label{fig:2D-plot_over_time-caseB}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph7.png}
+    \caption{Thrust acceleration components and total thrust acceleration over time - case B}
+    \label{fig:accel_over_time-caseB}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{images/graph8.png}
+    \caption{Total $\Delta v$ over time - case B}
+    \label{fig:delta_v_over_time-caseB}
+\end{figure}
+We can see that we indeed acomplished the design criteria:
+\begin{itemize}
+    \item The thrust doesn't exceed the maximum available thrust.
+    \item The miss distance at the final desired time is less than $1[\mathrm{m}]\ \left(0.0184121\left[\mathrm{m}\right]\right)$.
+    \item The terminal velocity is $1.20781\left[\displaystyle\frac{\mathrm{m}}{\mathrm{sec}}\right]$
+\end{itemize}
 
 
 \end{document}
