@@ -103,14 +103,14 @@ clc; clear;
 global_variabels
 
 state = [pos0_vec(1);v0_vec(1);pos0_vec(2);v0_vec(2);pos0_vec(3);v0_vec(3)];
-time_interval = [0, t_f-1e-2];
-
+time_interval = [0, t_f-1e-5];
+tol = 1e-10;
  % This is where we integrate the equations of motion.
-[t_out, state_out] = ode45(@satellite_caseB, time_interval, state, odeset('RelTol',1e-5,'AbsTol',1e-5));
+[t_out, state_out] = ode45(@satellite_caseB, time_interval, state, odeset('RelTol',tol,'AbsTol',tol));
 
 miss_distance = norm([state_out(end,1),state_out(end,3),state_out(end,5)]);
 miss_velocity = norm([state_out(end,2),state_out(end,4),state_out(end,6)]);
-%%
+
 fig5 = figure ("Name","3D Figure of The Orbit Trajectory",'Position',[100 150 900 500]);
 hold all
 
@@ -148,25 +148,30 @@ fig7 = figure ("Name","Thrust Acceleration Components and Total Thrust Accelerat
 colors = cool(4);
 fs = zeros(length(t_out),3);
 for i = 1:length(t_out)
-    t_out(i)
-    tau = t_f - t_out(i);
+    t = t_out(i);
     pos_vec = [state_out(i,1);state_out(i,3);state_out(i,5)];
     v_vec   = [state_out(i,2);state_out(i,4);state_out(i,6)];
-    vg = double(subs(C_star)*pos_vec - v_vec);
-
-    if norm(vg) < 1e-8
-        vg = zeros(3,1);
-    end
+    C_star = calc_C_star(t_f, t, n);
+    [phi_11, phi_12, ~, ~] = calc_phis(t_f, t, n);
     
-    p = double(-subs(C_star)*vg);
-    q = (accel_limit^2 - norm(p)^2 + (dot(p,vg/norm(vg)))^2)^0.5;
+    vg = C_star*pos_vec - v_vec;
     
-    f = p + (q - dot(p,vg/norm(vg)))*vg/norm(vg);
-    if norm(f)>accel_limit
-        fs(i,:) = f/norm(f)*accel_limit*0.9;
+    vg_normaliz = vg./norm(vg);
+    
+    p = -C_star*vg;
+    q = (accel_limit^2 - norm(p)^2 + (dot(p,vg_normaliz))^2)^0.5;
+    
+    f = p + (q - dot(p,vg_normaliz))*vg_normaliz;
+    % if norm(vg) < 1e-3
+    %     f = zeros(3,1);
+    % end
+    if norm(phi_11*pos_vec + phi_12*v_vec) < 1e-3
+        f = zeros(3,1);
     end
-
-
+    if ~isreal(q)
+        f = zeros(3,1);
+    end
+    fs(i,:) = f;
 end
 
 hold all
