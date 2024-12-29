@@ -1,7 +1,7 @@
 \documentclass[11pt, a4paper]{article}
 
 \usepackage{amsmath, amssymb, titling}
-\usepackage[margin=2.75cm]{geometry}
+\usepackage[margin=2.5cm]{geometry}
 \usepackage[colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
@@ -164,75 +164,98 @@ Where:
         \end{pmatrix}
     \end{matrix}
 \end{equation}
-\subsection{The homogeneous solution}
-\begin{equation}
-    \vec{x} = \begin{pmatrix}
-        x & y & z & \dot{x} & \dot{y} & \dot{z}
-    \end{pmatrix}^T
-\end{equation}
-\begin{equation}
-    \begin{array}{l}
-        \text{x-y plane:} \\
-        \Phi_{\left\{t,t_0\right\}} = \left(\begin{array}{cc|cc}
-            4-3\cos(n\tau) & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) \\ 
-            6\left(\sin(n\tau)-n\tau\right) & 1 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau)-3n\tau\right)\\ &&& \\ \hline &&& \\
-            3n\sin(n\tau) & 0 & \cos(n\tau) & 2\sin(n\tau) \\
-            6n\left(\cos(n\tau)-1\right) & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 
-        \end{array}\right) = \begin{pmatrix}
-            \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
-            \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
-        \end{pmatrix} \\ \\
-    \text{z-direction:} \\
-    \Phi_{(t,t_0)} = \begin{pmatrix}
-        \cos(n\tau) & \displaystyle\frac{1}{n}\sin(n\tau) \\
-        -n\sin(n\tau) & \cos(n\tau)
-    \end{pmatrix}
-    \end{array}
-\end{equation}
-Where:
-\begin{equation*}
-    \tau = t-t_0
-\end{equation*}
-So the full homogeneous solution in state space from:
-\begin{equation*}
-    \Phi_{(t,t_0)} = \left(\begin{array}{ccc|ccc}
-        4-3\cos(n\tau) & 0 & 0 &\displaystyle \frac{1}{n}\sin(n\tau) &\displaystyle \frac{2}{n}\left(1-\cos(n\tau)\right) & 0 \\ 
-        6\left(\sin(n\tau)-n\tau\right) & 1 & 0 &\displaystyle \frac{2}{n}\left(\cos(n\tau)-1\right) &\displaystyle \frac{1}{n}\left(4\sin(n\tau)-3n\tau\right) & 0 \\ 0 & 0 & \cos(n\tau) & 0 & 0 & \displaystyle\frac{1}{n}\sin(n\tau) \\ &&& \\ \hline &&& \\
-        3n\sin(n\tau) & 0 & 0 & \cos(n\tau) & 2\sin(n\tau) & 0 \\
-        6n\left(\cos(n\tau)-1\right) & 0 & 0 & -2\sin(n\tau) & 4\cos(n\tau)-3 & 0 \\
-        0 & 0 & -n\sin(n\tau) & 0 & 0 & \cos(n\tau) 
-    \end{array}\right) =  
-\end{equation*}
-\begin{equation}
-    \begin{pmatrix}
-        \Phi_{11(t,t_0)} & \Phi_{12(t,t_0)} \\
-        \Phi_{21(t,t_0)} & \Phi_{22(t,t_0)}
-    \end{pmatrix} 
-\end{equation}
 \newpage
 
-\section{A}
+\section{A and B}
 The desired poles are given by the following equation:
 \begin{equation}
     P = 10\cdot\begin{pmatrix}
-        -n+i\cdot n\\-n-i\cdot n\\
-        -4n+i\cdot 3n\\-4n-i\cdot 3n\\
-        -3n+i\cdot n\\-3n-i\cdot n
+        -n+i\cdot \frac{n}{600}\\-n-i\cdot \frac{n}{600}\\
+        -4n+i\cdot 3\frac{n}{600}\\-4n-i\cdot 3\frac{n}{600}\\
+        -3n+i\cdot \frac{n}{600}\\-3n-i\cdot \frac{n}{600}
     \end{pmatrix} = \begin{pmatrix}
-        -0.0105+i\cdot0.0105\\ -0.0105-i\cdot0.0105\\
-        -0.0419+i\cdot0.0314\\ -0.0419-i\cdot0.0314\\
-        -0.0314+i\cdot0.0105\\ -0.0314-i\cdot0.0105
+        -0.01047+i\cdot0.00001745\\ -0.01047-i\cdot0.00001745\\
+        -0.04189+i\cdot0.00005236\\ -0.04189-i\cdot0.00005236\\
+        -0.03142+i\cdot0.00001745\\ -0.03142-i\cdot0.00001745
     \end{pmatrix}
 \end{equation}
 By using the function \emph{place} in Matlab, we get:
 \begin{equation}
     K = \begin{pmatrix}
-        0.0013&0.0623&-3.0786\cdot10^{-5}&0.0122&-9.0833\cdot10^{-4}&-0.0308\\
-        1.8104\cdot10^{-4}&-0.0121&6.1079\cdot10^{-4}&0.0464&-3.0853\cdot10^{-5}&-0.0077\\
-        -2.4680\cdot10^{-4}&0.0059&-3.4367\cdot10^{-4}&-0.0033&9.6612\cdot10^{-4}&0.0588
+        4.406\cdot10^{-4}&0.0523&1.6865\cdot10^{-6}&0.0021&-1.1211\cdot10^{-5}&-3.0579\cdot10^{-4}\\
+        -1.0725\cdot10^{-6}&-0.0021&3.3014\cdot10^{-4}&0.0419&1.5749\cdot10^{-6}&3.7109\cdot10^{-5}\\
+        -9.2809\cdot10^{-6}&-2.0798\cdot10^{-4}&2.6270\cdot10^{-6}&7.6995\cdot10^{-5}&0.0013&0.0733
     \end{pmatrix}
 \end{equation}
-We can see that $$\displaystyle\tau = \frac{1}{\mathbb{R}e\left\{P_i\right\}} < \frac{1}{10n} = \frac{1}{0.0105} = 95.4930 < 2000$$
+We can see that $$\displaystyle\tau = \frac{1}{\mathbb{R}e\left\{P_i\right\}} < \frac{1}{10n} = \frac{1}{0.01047} = 95.4923 < 2000$$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph1.png}
+    \caption{3D figure of the orbit trajectory - AB}
+    \label{fig:3D-plot-AB}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph2.png}
+    \caption{2D figure of the position over time - AB}
+    \label{fig:2D-plot_over_time-AB}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph3.png}
+    \caption{Thrust acceleration components and total thrust acceleration over time - AB}
+    \label{fig:accel_over_time-AB}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph4.png}
+    \caption{Total $\Delta v$ over time - AB}
+    \label{fig:delta_v_over_time-AB}
+\end{figure}
+We can see that we indeed acomplished the design criteria:
+\begin{itemize}
+    \item The thrust doesn't exceed the maximum available thrust.
+    \item The miss distance at the final desired time is less than $1[\mathrm{m}]\ \left(2.3893\cdot10^{-5}\left[\mathrm{m}\right]\right)$.
+    \item The miss velocity at the final desired time is less than $1\left[\displaystyle\frac{\mathrm{cm}}{\mathrm{sec}}\right]\ \left(2.5057\cdot10^{-5}\left[\displaystyle\frac{\mathrm{cm}}{\mathrm{sec}}\right]\right)$.
+\end{itemize}
+
+The total $\Delta v$ is: $0.021596\left[\displaystyle\frac{\mathrm{km}}{\mathrm{sec}}\right]$
+\newpage
+
+\section{C}
+For all $t>500\left[\mathrm{sec}\right]$, the measered position at z is zero.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph5.png}
+    \caption{3D figure of the orbit trajectory - C}
+    \label{fig:3D-plot-caseC}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/graph6.png}
+    \caption{2D figure of the position over time - C}
+    \label{fig:2D-plot_over_time-caseC}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/graph7.png}
+    \caption{Thrust acceleration components and total thrust acceleration over time - C}
+    \label{fig:accel_over_time-caseC}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/graph8.png}
+    \caption{Total $\Delta v$ over time - C}
+    \label{fig:delta_v_over_time-caseC}
+\end{figure}
+We can see that we indeed acomplished the design criteria:
+\begin{itemize}
+    \item The thrust doesn't exceed the maximum available thrust.
+    \item The miss distance at the final desired time is less than $1[\mathrm{m}]\ \left(2.3893\cdot10^{-5}\left[\mathrm{m}\right]\right)$.
+    \item The miss velocity at the final desired time is less than $1\left[\displaystyle\frac{\mathrm{cm}}{\mathrm{sec}}\right]\ \left(2.5057\cdot10^{-5}\left[\displaystyle\frac{\mathrm{cm}}{\mathrm{sec}}\right]\right)$.
+\end{itemize}
+
+we can see that unlike the normal operation, the thrust doesn't go to zero but to a constatn and the $\Delta v$ grows a bit. Because I chose good poles we still acomplished the design criteria.
 
 
 
