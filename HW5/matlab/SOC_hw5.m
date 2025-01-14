@@ -27,7 +27,8 @@ time_interval = [0:0.1:t_f];
 miss_distance = norm([state_out(end,1),state_out(end,2),state_out(end,3)]);
 miss_velocity = norm([state_out(end,4),state_out(end,5),state_out(end,6)]);
 x_vec_out = [state_out(:,1) + state_out(:,7),state_out(:,3) + state_out(:,9),state_out(:,5) + state_out(:,11)];
-vec_delx = [state_out(:,1),state_out(:,3),state_out(:,5)];
+vec_delx_out = [state_out(:,1),state_out(:,3),state_out(:,5)];
+x_ref_vec_out = [state_out(:,7),state_out(:,9),state_out(:,11)];
 
 fig1 = figure ("Name","3D Figure of The Orbit Trajectory",'Position',[100 300 900 500]);
 
@@ -47,9 +48,9 @@ subtitle("Almog Dobrescu 214254252")
 legend({'the orbit', 'target trajectory', 'init position', 'end position'},'FontSize',11 ,'Location','northwest')
 % exportgraphics(fig1, 'graph1.png','Resolution',600);
 %%
-colors = cool(10);
+colors = cool(9);
 %finding the time when norm(vec_delx)<10e-3:
-for i=1:length(vec_delx)
+for i=1:length(vec_delx_out)
     if norm(x_vec_out(i,:)) < 10e-3
         break
     end
@@ -60,22 +61,25 @@ for j=1:length(t_out)
     norm_x(j) = norm(x_vec_out(j,:));
 end
 
-fig2 = figure ("Name","2D Figure of The Orbit Trajectory Over Time",'Position',[300 300 900 500]);
+fig2 = figure ("Name","2D Figure of The Orbit and Target Trajectory Over Time",'Position',[300 300 900 500]);
 hold all
 
 plot(t_out, x_vec_out(:,1), "LineWidth", 2, "Color", colors(1,:))
-plot(t_out, x_vec_out(:,2), "LineWidth", 2, "Color", colors(4,:))
-plot(t_out, x_vec_out(:,3), "LineWidth", 2, "Color", colors(6,:))
+plot(t_out, x_vec_out(:,2), "LineWidth", 2, "Color", colors(3,:))
+plot(t_out, x_vec_out(:,3), "LineWidth", 2, "Color", colors(5,:))
 plot(t_out, norm_x, "LineWidth", 2, "Color", colors(7,:))
-plot(ones(length(linspace(0,0.5,50)))*t_out(i), linspace(0,0.5,50), "LineWidth", 2, "Color", colors(10,:))
+plot(t_out, x_ref_vec_out(:,1),"-", "LineWidth", 2, "Color", "r")
+plot(t_out, x_ref_vec_out(:,2),"--", "LineWidth", 2, "Color", "k")
+plot(t_out, x_ref_vec_out(:,3),"--", "LineWidth", 2, "Color", "b")
+plot(ones(length(linspace(0,0.5,50)))*t_out(i), linspace(0,0.5,50), "LineWidth", 2, "Color", colors(9,:))
 
 xlabel('Time [sec]')
 ylabel('Position [km]')
 grid on
 grid minor
-title("2D Figure of The Orbit Trajectory Over Time")
+title("2D Figure of The Orbit and Target Trajectory Over Time")
 subtitle("Almog Dobrescu 214254252")
-legend({'x', 'y', 'z', 'distance', '|x|<10'},'FontSize',11 ,'Location','northeast')
+legend({'x', '$x_{ref}$', 'y', '$y_{ref}$', 'z', '$z_{ref}$', 'distance', '$|x|<10$'},'FontSize',11 ,'Location','northeast',Interpreter='latex')
 % exportgraphics(fig2, 'graph2.png','Resolution',600);
 %%
 fig3 = figure ("Name","Thrust Acceleration Components and Total Thrust Acceleration Over Time",'Position',[500 300 900 500]);
@@ -132,7 +136,7 @@ subtitle("Almog Dobrescu 214254252")
 colors = cool(2);
 
 for j=1:length(t_out)
-    norm_delx(j) = norm(vec_delx(j,:));
+    norm_delx(j) = norm(vec_delx_out(j,:));
 end
 
 fig5 = figure ("Name","The Miss Distance From the Target Trajectory Over Time",'Position',[400 100 900 500]);
