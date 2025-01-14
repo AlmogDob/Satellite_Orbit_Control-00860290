@@ -87,8 +87,8 @@ colors = cool(4);
 fs = zeros(length(t_out),3);
 for j = 1:length(t_out)
     t = t_out(j);
-    delx_vec_state = state(1:6, :);
-    f = K*delx_vec_state;
+    delx_vec_state = state_out(j,1:6).';
+    f = -K*delx_vec_state;
     norm_f = norm(f);
     if norm_f > f_max
         f = f/norm_f*f_max*0.9;
