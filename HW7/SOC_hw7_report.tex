@@ -1,0 +1,216 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{amsmath, amssymb, titling}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr, lastpage}
+\usepackage{xcolor}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\title{Satellite Orbit Control \\ HW6}
+\author{Almog Dobrescu\\\\ID 214254252}
+
+\pagestyle{fancy}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+\tableofcontents
+\vfil
+\listoffigures
+\newpage
+
+\section{Given}
+\begin{equation*}
+    \begin{matrix}
+        T_1=100\left[min\right] = 6\cdot10^3\left[sec\right] && T_2 = T_1 = 6\cdot10^3\left[sec\right] \\
+        e_1 = 0 && e_2 = 0 \\
+        a_1 = \sqrt[3]{\frac{\mu T_1^2}{4\pi^2}} = 7.1366\cdot10^3\left[km\right] && a_2 = a_1 = 7.1366\cdot10^3\left[km\right]
+    \end{matrix}\\
+\end{equation*}
+\begin{equation*}
+    \alpha=\Delta i = 0.01^\circ
+\end{equation*}
+In CW frame with origin at Satellite \#1 and at $t=0$:
+\begin{equation*}
+    \begin{matrix}
+    \begin{pmatrix}
+        x_2(0)=0 \\ y_2(0)=-1 \\ z_2(0)=1
+    \end{pmatrix}\left[\mathrm{km}\right] &&
+    \begin{pmatrix}
+        \dot{x}_2(0)=0 \\ \dot{y}_2(0) =0 \\ \dot{z}_2(0)=-0.74267\cdot n
+    \end{pmatrix}\displaystyle\left[\frac{\mathrm{km}}{\mathrm{sec}}\right]
+    \end{matrix}
+\end{equation*}
+
+\subsection{Desired}
+\begin{equation*}
+    \begin{matrix}
+    \begin{pmatrix}
+        x_2(t_f)=0 \\ y_2(t_f)=0 \\ z_2(t_f)=0
+    \end{pmatrix} &&
+    \begin{pmatrix}
+        \dot{x}_2(t_f)=0 \\ \dot{y}_2(t_f)=0 \\ \dot{z}_2(t_f)=0
+    \end{pmatrix}
+    \end{matrix}
+\end{equation*}
+
+\subsection{Limitations}
+\begin{equation*}
+    \begin{matrix}
+        a_\text{max} = 4\cdot10^{-5}\left[\frac{\mathrm{km}}{\mathrm{sec}^2}\right] && t_f=2000\left[sec\right]
+    \end{matrix}
+\end{equation*}
+
+\section{The CW equations}
+\begin{equation}
+    \left\{\begin{array}{l}
+        \ddot{x}-2n\dot{y}-3n^2x=f_x\\
+        \ddot{y}+2n\dot{x}=f_y\\
+        \ddot{z}+n^2z=f_z
+    \end{array}\right.
+\end{equation}
+
+\subsection{x-y}
+\begin{equation}
+    \vec{x}=\begin{pmatrix}
+        x\\\dot{x}\\y\\\dot{y}
+    \end{pmatrix}
+\end{equation}
+\begin{equation}
+    \dot{\vec{x}}=F\vec{x}+G\vec{f}
+\end{equation}
+Where:
+\begin{equation}
+    \begin{matrix}
+        F=\begin{pmatrix}
+            0 & 1 & 0 & 0 \\
+            3n^2 & 0 & 0 & 2n \\
+            0 & 0 & 0 & 1 \\
+            0 & -2n & 0 & 0
+        \end{pmatrix} && G=\begin{pmatrix}
+            0 & 0\\
+            1 & 0\\
+            0 & 0\\
+            0 & 1
+        \end{pmatrix} && f=\begin{pmatrix}
+            f_x\\f_y
+        \end{pmatrix}
+    \end{matrix}
+\end{equation}
+
+\subsection{z}
+\begin{equation}
+    \vec{x}=\begin{pmatrix}
+        z\\\dot{z}
+    \end{pmatrix}
+\end{equation}
+\begin{equation}
+    \dot{\vec{x}}=F\vec{x}+Gf
+\end{equation}
+Where:
+\begin{equation}
+    \begin{matrix}
+        F=\begin{pmatrix}
+            0 & 1 \\
+            -n^2 & 0
+        \end{pmatrix} && G=\begin{pmatrix}
+            0 \\
+            1
+        \end{pmatrix} && f=\begin{pmatrix}
+            f_z
+        \end{pmatrix}
+    \end{matrix}
+\end{equation}
+
+\subsection{x-y-z}
+The equations of motion in state space form are therefor:
+\begin{equation}
+    \vec{x} = \begin{pmatrix}
+        x & \dot{x} & y & \dot{y} & z & \dot{z}
+    \end{pmatrix}^T
+\end{equation}
+\begin{equation}
+    \dot{\vec{x}}=F\vec{x}+G\vec{f}
+\end{equation}
+Where:
+\begin{equation}
+    \begin{matrix}
+        F=\begin{pmatrix}
+            0 & 1 & 0 & 0 & 0 & 0 \\
+            3n^2 & 0 & 0 & 2n & 0 & 0 \\
+            0 & 0 & 0 & 1 & 0 & 0 \\
+            0 & -2n & 0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 & -n^2 & 0 
+        \end{pmatrix} && G=\begin{pmatrix}
+            0 & 0 & 0\\
+            1 & 0 & 0\\
+            0 & 0 & 0\\
+            0 & 1 & 0\\
+            0 & 0 & 0\\
+            0 & 0 & 1
+        \end{pmatrix} && f=\begin{pmatrix}
+            f_x\\f_y\\f_z
+        \end{pmatrix}
+    \end{matrix}
+\end{equation}
+
+\section{Optimal Linear Time-Varying Gains}
+\newpage
+
+\section{The Gains Matrix}
+By using the function \emph{lqr} in Matlab, we get:
+\begin{equation}
+    K = \begin{pmatrix}
+        0.0400&4.0100&-0.0000&0.0000&-0.0000&-0.0000\\
+        0.0000&0.0000&0.0400&4.0100&0.0000&0.0000\\
+        0.0000&0.0000&-0.0000&-0.0000&0.0400&4.0100
+    \end{pmatrix}
+\end{equation}
+
+\section{The Results}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{images/graph1.png}
+%     \caption{3D figure of the orbit trajectory}
+%     \label{fig:3D-plot}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{images/graph2.png}
+%     \caption{2D figure of the orbit target trajectory over time}
+%     \label{fig:2D-plot_over_time}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{images/graph3.png}
+%     \caption{Thrust acceleration components and total thrust acceleration over time}
+%     \label{fig:accel_over_time}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=1\textwidth]{images/graph4.png}
+%     \caption{Total $\Delta v$ over time}
+%     \label{fig:delta_v_over_time}
+% \end{figure}
+We can see that we indeed acomplished the design criteria:
+\begin{itemize}
+    \item The thrust doesn't exceed the maximum available thrust.
+    \item The miss distance at the final desired time is less than $1[\mathrm{m}]\ \left(2.2047\cdot10^{-6}\left[\mathrm{m}\right]\right)$.
+    \item The miss velocity at the final desired time is less than $1\left[\displaystyle\frac{\mathrm{cm}}{\mathrm{sec}}\right]\ \left(2.2037\cdot10^{-6}\left[\displaystyle\frac{\mathrm{cm}}{\mathrm{sec}}\right]\right)$.
+\end{itemize}
+
+The total $\Delta v$ is: $0.0146\left[\displaystyle\frac{\mathrm{km}}{\mathrm{sec}}\right]$
+
+\end{document}
