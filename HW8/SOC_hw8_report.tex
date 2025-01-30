@@ -1,0 +1,171 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{amsmath, amssymb, titling}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr, lastpage}
+\usepackage{xcolor}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\title{Satellite Orbit Control \\ HW8}
+\author{Almog Dobrescu\\\\ID 214254252}
+
+\pagestyle{fancy}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+\tableofcontents
+\vfil
+\newpage
+
+\section{Given}
+A satellite is placed in an Earth Repeat circular orbit $\left(e=0\right)$ with $T=100\left[\mathrm{min}\right]=6\cdot10^3\left[\mathrm{sec}\right]$. \\The satellite performs a \emph{D} maneuver cycle (point A) and the ground track deviation was $20\left[\mathrm{km}\right]$.\\
+At $t=5\left[\mathrm{day}\right]$ the gournd track deviation was $-10\left[\mathrm{km}\right]$ and the rate of change of the ground track was negative.
+\subsection{Desired}
+\begin{enumerate}
+    \item Altitude decay rate
+    \item Altitude difference between A and C (the end of the maneuver cycle)
+    \item Velocity change that is required to raise the altitude from C to A
+\end{enumerate}
+
+% \section{Deviation From The Nominal Point}
+% The nominal point:
+% \begin{equation}
+%     \begin{matrix}
+%         a=42164\left[\mathrm{km}\right] && e=0 && i=0
+%     \end{matrix}
+% \end{equation}
+
+% \subsection{Semi-major Axis Deviation}
+% \begin{equation}
+%     \frac{\Delta n}{\Delta a}=-\frac{3}{2}\frac{n}{a}=-0.013\left[\frac{\mathrm{deg}}{\mathrm{day}\cdot\mathrm{km}}\right]
+% \end{equation}
+% \subsection{Inclination Deviation}
+% From the law of sines for the spherical triangle:
+% \begin{equation}
+%     \frac{\sin\delta}{\sin i}=\sin\left(nt\right)
+% \end{equation}
+% $$\Downarrow$$
+% \begin{equation}
+%     \delta\left(t\right)=i\sin\left(nt\right)
+% \end{equation}
+% Napier Rules for right spherical triangle:
+% \begin{equation}
+%     \begin{array}{l}
+%         \sin\left(90^\circ-i\right)=\tan\left(90^\circ-nt\right)\tan\left(nt+\lambda\right) \\
+%         \displaystyle\cos\left(i\right)=\frac{\tan\left(nt+\lambda\right)}{\tan\left(nt\right)} \\
+%         \displaystyle1-\cos\left(i\right)=-\frac{\sin\left(\lambda\right)}{\cos\left(nt+\lambda\right)\sin\left(nt\right)} \\\\
+%         \begin{matrix}
+%             &&&& \Downarrow && \text{for small angles}
+%         \end{matrix} \\\\
+%         \displaystyle\lambda_{\left(t\right)}=-\frac{i^2}{4}\sin\left(2nt\right)
+%     \end{array}
+% \end{equation}
+
+% \subsection{Eccentricity Deviation}
+% \begin{equation}
+%     \Delta\lambda=\theta-M=\cos^{-1}\left(\displaystyle\frac{\cos\left(E\right)-e}{1-e\cos\left(E\right)}\right)-E+e\sin\left(E\right)
+% \end{equation}
+% Maximum deviation:
+% \begin{equation}
+%     \begin{array}{lcl}
+%         \displaystyle E=\frac{\pi}{2} && \cos\theta=-e \\\\
+%         \theta=\displaystyle\frac{\pi}{2} && \cos\theta=-\sin\alpha=-e \\
+%         &\Downarrow& \\\\
+%         &\displaystyle\theta=\frac{\pi}{2}+e&
+%     \end{array}
+% \end{equation}
+% \begin{equation}
+%     \Delta\lambda_{\mathrm{max}}=\frac{\pi}{2}+e-\left(\frac{\pi}{2}-e\right)=2e
+% \end{equation}
+
+\section{D Maneuver}
+The allowed tolerance is $\Delta L$, which means the allowed deviation is $\pm\Delta L$. Point A is $\Delta h$ above the nominal height and $\Delta L$ before the nominal position. The satellite is in a higher orbit than the nominal so the velocity decreases. The height of the satellite decreases because of the drag and with the lower velocity, the satellite goes backward towards the nominal point.\\
+At point B the height is equal to the nominal height but $\Delta L$ after the nominal position. The height continues to decrease and the velocity increases and passes the nominal velocity. \\
+At point C the satellite is the height $-\Delta h$ and $Delta L$ before the nominal point. At this point, using 2 pulses, the satellite transfers to point A using Hohmann transfer.
+
+\subsection{Semi-major Axis Decay Because of Drag}
+\begin{equation}
+    \dot{a}=\frac{2a}{r}\left(2a-r\right)\frac{f_t}{V}=-\frac{2a}{r}\left(2a-r\right)\frac{\rho VK_D}{2}
+\end{equation}
+For semi-circular orbit:
+\begin{equation}
+    \dot{a}=-\rho K_D\sqrt{\mu a}=-\rho K_Dna^2
+\end{equation}
+Assuming the change of height is small (the density is constant), we will mark the constant rate of decent $k\equiv-\dot{a}$. The change of the semi-major axis when $\left(t_A=0\right)$:
+\begin{equation}
+    \Delta a=-kt
+\end{equation}
+
+\subsection{Change in Longitudinal Position}
+To calculate the change in the longitudinal position, we will find the change in the mean anomaly:
+\begin{equation}
+    \begin{matrix}
+        \Delta\dot{M}=\Delta n && \Rightarrow && \Delta M=\int_0^t\Delta ndt
+    \end{matrix}
+\end{equation}
+$\Delta n$ is the change in \emph{n} because the change in \emph{a}:
+\begin{equation}
+    \begin{matrix}
+        \displaystyle n^2=\frac{\mu}{a^3} && \rightarrow && \displaystyle \Delta n=-\frac{3}{2}\frac{n}{a}\Delta a \\\\ && \Downarrow && \\ 
+        \Delta M&& = && \displaystyle \frac{3n}{2a}\int_0^tktdt=\frac{3nk}{4a}t^2 
+    \end{matrix}
+\end{equation}
+
+\subsection{Required $\Delta v$}
+\begin{equation}
+    \Delta v=\frac{n}{2}\Delta a=\frac{n}{2}k\cdot4\sqrt{\frac{2\Delta L}{3nk}}=2\sqrt{\frac{2nk\Delta L}{3}}
+\end{equation}
+
+\newpage
+
+\section{The Solution}
+
+\subsection{Altitude Decay Rate}
+\begin{equation}
+    \begin{array}{c}
+        \Delta L=20\left[\mathrm{km}\right] \\\\
+        \Delta t=5-0\left[day\right] \\\\
+        \begin{matrix}
+            T=6\cdot10^3 && \Rightarrow && a=7.1366\cdot10^3\left[\mathrm{km}\right] & n = 1.0472\cdot10^{-3}
+        \end{matrix} \\\\
+        \Delta L_{\Delta t}=\Delta aM_{\Delta t}=\displaystyle \frac{3nk}{4}\left(\Delta t\right)^2 \\\\
+        \Downarrow \\\\
+        \displaystyle k = \frac{4\Delta L_{\Delta t}}{3n\left(\Delta t\right)^2}
+    \end{array}
+\end{equation}
+\begin{equation}
+    \colorbox{yellow}{$\displaystyle k=2.0467\cdot10^{-7}\left[\frac{\mathrm{km}}{\mathrm{sec}}\right]$}
+\end{equation}
+
+\subsection{Altitude Difference Between A and C}
+\begin{equation}
+    \begin{array}{c}
+        \displaystyle t_B=\sqrt{\frac{8\Delta L}{3nk}} \\\\
+        \Delta h=\Delta a=-2kt_B
+    \end{array}
+\end{equation}
+\begin{equation}
+    \colorbox{yellow}{$\displaystyle \Delta h=-0.2042\left[\mathrm{km}\right]$}
+\end{equation}
+
+\subsection{Velocity Change to Raise the Altitude From C to A}
+\begin{equation}
+    \Delta v=2\sqrt{\frac{2nk\Delta L}{3}}
+\end{equation}
+\begin{equation}
+    \colorbox{yellow}{$\displaystyle \Delta v=1.0692\cdot10^{-4}\left[\frac{\mathrm{km}}{\mathrm{sec}}\right]$}
+\end{equation}
+
+\end{document}
