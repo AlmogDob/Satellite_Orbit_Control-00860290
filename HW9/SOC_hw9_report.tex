@@ -1,0 +1,71 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath, amssymb, titling}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[colorlinks=true, linkcolor=black, urlcolor=black, citecolor=black]{hyperref}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{fancyhdr, lastpage}
+\usepackage{fourier-orns}
+\usepackage{xcolor}
+\usepackage{sidecap}
+
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\renewcommand{\headrule}{
+\vspace{-5pt}\hrulefill
+\raisebox{-2.1pt}{\quad\leafleft\decoone\leafright\quad}\hrulefill}
+
+\title{Satellite Orbit Control \\ HW9}
+\author{Almog Dobrescu\\\\ID 214254252}
+
+\pagestyle{fancy}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+\tableofcontents
+\vfil
+\listoffigures
+\newpage
+
+\section{Given}
+A communication satellite is placed in a geostationary orbit above longitude $30^\circ\mathrm{E}$.
+\begin{equation}
+    \begin{matrix}
+        T=8.6164\cdot10^4\left[\mathrm{sec}\right]\rightarrow a=4.2164\cdot10^4\left[\mathrm{km}\right] && \theta=30^\circ && e=0 && i=0 \\
+    \end{matrix}
+\end{equation}
+The longitude tolerance is $\pm0.05^\circ$ $\left(\Delta L=36.7952\left[\mathrm{m}\right]\right)$
+
+\subsection{Desired}
+
+\subsection{Limitations}
+The thrust is only at the $\pm y$ direction and:
+\begin{equation}
+    a_{\mathrm{max}}=1\cdot10^{-7}\left[\frac{\mathrm{km}}{\mathrm{sec}^2}\right]
+\end{equation}
+
+\section{Control}
+\subsection{East-West Control}
+\subsubsection{Drift Duo to axial asymmetry}
+The gravity component normal to the radius changes the orbit period so the satellite moves toward the closest equilibrium point.
+
+\newpage
+
+\section{The Results}
+\subsection{Part A}
+
+\subsection{Part B}
+
+\subsection{Part C}
+
+\end{document}
