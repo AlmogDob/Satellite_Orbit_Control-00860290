@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.14)  7 FEB 2025 18:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.14)  7 FEB 2025 19:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -468,10 +468,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-7.64995pt}.
 
 [2]
-Overfull \hbox (23.49419pt too wide) detected at line 128
-[][][]
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 19.64995pt, for example:
@@ -480,6 +476,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-7.64995pt}.
 
 [3]
+<images/graph1.png, id=106, 564.4287pt x 362.5545pt>
+File: images/graph1.png Graphic file (type png)
+<use images/graph1.png>
+Package pdftex.def Info: images/graph1.png  used on input line 159.
+(pdftex.def)             Requested size: 318.66948pt x 204.69984pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 19.64995pt, for example:
@@ -487,16 +489,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-7.64995pt}.
 
-[4]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 153.
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 153.
+[4 <./images/graph1.png (PNG copy)>]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 169.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 169.
  (/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 10.20007pt on input line 153.
+(Font)              scaled to size 10.20007pt on input line 169.
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 9.30756pt on input line 153.
+(Font)              scaled to size 9.30756pt on input line 169.
  (./matlab/SOC_hw9.m
 LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
 (Font)              scaled to size 9.30756pt on input line 3.
@@ -529,10 +531,19 @@ Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             Default family used instead on input line 25.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 33.
+(textcomp)             Default family used instead on input line 32.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 33.
+(textcomp)             Default family used instead on input line 32.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 35.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 37.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 37.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -544,16 +555,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [5]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 60.
+(textcomp)             Default family used instead on input line 69.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 60.
+(textcomp)             Default family used instead on input line 70.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 60.
+(textcomp)             Default family used instead on input line 77.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 60.
+(textcomp)             Default family used instead on input line 79.
 ) 
 AED: lastpage setting LastPage
 
@@ -565,21 +576,21 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [6] (./SOC_hw9_report.aux)
 Package rerunfilecheck Info: File `SOC_hw9_report.out' has not changed.
-(rerunfilecheck)             Checksum: 254EB69F4636BE24401C8FAB12025CB0;1331.
+(rerunfilecheck)             Checksum: 6E048683D20BA13A035FD32A3F02795D;1098.
  ) 
 Here is how much of TeX's memory you used:
- 14375 strings out of 478287
- 222629 string characters out of 5849288
- 820236 words of memory out of 5000000
- 32265 multiletter control sequences out of 15000+600000
+ 14421 strings out of 478287
+ 223349 string characters out of 5849288
+ 834285 words of memory out of 5000000
+ 32288 multiletter control sequences out of 15000+600000
  487551 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,13n,63p,420b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,13n,63p,443b,2201s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb>
-Output written on SOC_hw9_report.pdf (7 pages, 241874 bytes).
+Output written on SOC_hw9_report.pdf (7 pages, 415856 bytes).
 PDF statistics:
- 303 PDF objects out of 1000 (max. 8388607)
- 252 compressed objects within 3 object streams
- 98 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 273 compressed objects within 3 object streams
+ 118 named destinations out of 1000 (max. 500000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

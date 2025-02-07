@@ -57,7 +57,7 @@ The thrust is only at the $\pm y$ direction and:
 
 \section{Control}
 \subsection{East-West Control}
-\subsubsection{Drift Duo to axial asymmetry}
+\subsubsection{Drift Duo to Tesseral Harmonics}
 The gravity component normal to the radius changes the orbit period so the satellite moves toward the closest equilibrium point. The force component creates a tangential acceleration, which is equivalent to the angular acceleration of the longitude line underneath the satellite:
 \begin{equation}
     a\ddot{\lambda}=\vec{f}\cdot\vec{v}
@@ -119,13 +119,13 @@ The change in altitude between to corections:
     \Delta a=0.132\sin\left(2\left(\lambda-\lambda_s\right)\right)t_m\left[\mathrm{km}\right]
 \end{equation}
 
-\subsection{Drift due to The Tesseral Harmonics}
-\begin{equation}
-    \begin{array}{l}
-        \displaystyle\frac{da}{dt}=6.06\sin\left(2\left(\lambda-27.8^\circ\mathrm{E}\right)\right)-1.48\sin\left(4\left(\lambda-30.28^\circ\mathrm{E}\right)\right)+0.19\sin\left(2\left(\lambda-31.92^\circ\mathrm{E}\right)\right)\left[\frac{\mathrm{m}}{\mathrm{day}}\right] \\\\
-        \displaystyle\frac{d^2\lambda}{dt^2}=\frac{3n}{4a}\frac{da}{dt}
-    \end{array}
-\end{equation}
+% \subsection{Drift due to The Tesseral Harmonics}
+% \begin{equation}
+%     \begin{array}{l}
+%         \displaystyle\frac{da}{dt}=6.06\sin\left(2\left(\lambda-27.8^\circ\mathrm{E}\right)\right)-1.48\sin\left(4\left(\lambda-30.28^\circ\mathrm{E}\right)\right)+0.19\sin\left(2\left(\lambda-31.92^\circ\mathrm{E}\right)\right)\left[\frac{\mathrm{m}}{\mathrm{day}}\right] \\\\
+%         \displaystyle\frac{d^2\lambda}{dt^2}=\frac{3n}{4a}\frac{da}{dt}
+%     \end{array}
+% \end{equation}
 
 \newpage
 
@@ -145,6 +145,22 @@ The change in altitude between to corections:
 \end{equation}
 
 \subsection{Part C}
+In order to test the worst scenario, the initial condition for the rate of change of the longitude line will be its maximal value:
+\begin{equation}
+    \dot{\lambda}_0=\pm0.0183\left[\frac{\mathrm{deg}}{\mathrm{day}}\right]
+\end{equation}
+and the initial longitude line will be the nominal one:
+\begin{equation}
+    \lambda_0=\lambda_n=30^\circ
+\end{equation}
+By assuming that the amplitude of the change of the semi-major axis is constant we get the range of longitudes:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/graph1.png}
+    \caption{Longitude vs. Time}
+    \label{fig:longitude_vs_time}
+\end{figure}
+We can see that the maximal longitude range is $\colorbox{yellow}{$\pm20.0719^\circ$}$.
 
 \newpage
 
