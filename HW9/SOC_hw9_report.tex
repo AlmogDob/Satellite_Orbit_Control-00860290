@@ -10,7 +10,8 @@
 \usepackage{fancyhdr, lastpage}
 \usepackage{fourier-orns}
 \usepackage{xcolor}
-\usepackage{sidecap}
+\usepackage{matlab-prettifier}
+\usepackage[T1]{fontenc}
 
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
@@ -119,6 +120,12 @@ The change in altitude between to corections:
 \end{equation}
 
 \subsection{Drift due to The Tesseral Harmonics}
+\begin{equation}
+    \begin{array}{l}
+        \displaystyle\frac{da}{dt}=6.06\sin\left(2\left(\lambda-27.8^\circ\mathrm{E}\right)\right)-1.48\sin\left(4\left(\lambda-30.28^\circ\mathrm{E}\right)\right)+0.19\sin\left(2\left(\lambda-31.92^\circ\mathrm{E}\right)\right)\left[\frac{\mathrm{m}}{\mathrm{day}}\right] \\\\
+        \displaystyle\frac{d^2\lambda}{dt^2}=\frac{3n}{4a}\frac{da}{dt}
+    \end{array}
+\end{equation}
 
 \newpage
 
@@ -138,5 +145,12 @@ The change in altitude between to corections:
 \end{equation}
 
 \subsection{Part C}
+
+\newpage
+
+\appendix
+\section{The Code}
+\begin{lstinputlisting}[captionpos=b,stringstyle=\color{magenta},frame=single, numbers=left, style=MatLab-editor, basicstyle=\mlttfamily\small, caption={The code},mlshowsectionrules=true]{./matlab/SOC_hw9.m}
+\end{lstinputlisting}
 
 \end{document}

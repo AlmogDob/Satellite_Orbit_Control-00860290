@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.14)  7 FEB 2025 01:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.10.14)  7 FEB 2025 18:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -288,42 +288,66 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
-) (/usr/share/texlive/texmf-dist/tex/latex/sidecap/sidecap.sty
-Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
- (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
-)
-\SC@BOXWD=\dimen169
-\SC@CAPWD=\dimen170
-\SC@tempdima=\dimen171
-\SC@tempdimb=\dimen172
-\c@SC@C=\count289
-\SC@BOX=\box54
+) (/usr/share/texlive/texmf-dist/tex/latex/matlab-prettifier/matlab-prettifier.sty
+Package: matlab-prettifier 2014/06/19 v0.3 A package for prettyprinting Matlab source code
+ (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count289
+\lst@gtempboxa=\box54
+\lst@token=\toks25
+\lst@length=\count290
+\lst@currlwidth=\dimen169
+\lst@column=\count291
+\lst@pos=\count292
+\lst@lostspace=\dimen170
+\lst@width=\dimen171
+\lst@newlines=\count293
+\lst@lineno=\count294
+\lst@maxwidth=\dimen172
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count295
+\lst@skipnumbers=\count296
+\lst@framebox=\box55
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+\netBracketCount@mlpr=\count297
+\blkLvl@mlpr=\count298
+\blkLvlAtClassdef@mlpr=\count299
+\emHeight@mlpr=\skip65
+\jayDepth@mlpr=\skip66
+\sectionRuleOffset@mlpr=\skip67
+\toks@mlpr=\toks26
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count290
-\l__pdf_internal_box=\box55
+\l__color_backend_stack_int=\count300
+\l__pdf_internal_box=\box56
 ) (./SOC_hw9_report.aux)
 \openout1 = `SOC_hw9_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -359,7 +383,7 @@ LaTeX Font Info:    ... okay on input line 27.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 27.
+Package hyperref Info: Link coloring ON on input line 28.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -367,28 +391,28 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count291
+\c@section@level=\count301
 )
-LaTeX Info: Redefining \ref on input line 27.
-LaTeX Info: Redefining \pageref on input line 27.
-LaTeX Info: Redefining \nameref on input line 27.
+LaTeX Info: Redefining \ref on input line 28.
+LaTeX Info: Redefining \pageref on input line 28.
+LaTeX Info: Redefining \nameref on input line 28.
  (./SOC_hw9_report.out) (./SOC_hw9_report.out)
 \@outlinefile=\write3
 \openout3 = `SOC_hw9_report.out'.
 
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count292
+\scratchcounter=\count302
 \scratchdimen=\dimen173
-\scratchbox=\box56
-\nofMPsegments=\count293
-\nofMParguments=\count294
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count295
+\scratchbox=\box57
+\nofMPsegments=\count303
+\nofMParguments=\count304
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count305
 \MPscratchDim=\dimen174
-\MPnumerator=\count296
-\makeMPintoPDFobject=\count297
-\everyMPtoPDFconversion=\toks26
+\MPnumerator=\count306
+\makeMPintoPDFobject=\count307
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -397,33 +421,17 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
-Package caption Info: sidecap package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 27.
- (/usr/share/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.sty
-Package: ragged2e 2021/12/15 v3.1 ragged2e Package
-\CenteringLeftskip=\skip65
-\RaggedLeftLeftskip=\skip66
-\RaggedRightLeftskip=\skip67
-\CenteringRightskip=\skip68
-\RaggedLeftRightskip=\skip69
-\RaggedRightRightskip=\skip70
-\CenteringParfillskip=\skip71
-\RaggedLeftParfillskip=\skip72
-\RaggedRightParfillskip=\skip73
-\JustifyingParfillskip=\skip74
-\CenteringParindent=\skip75
-\RaggedLeftParindent=\skip76
-\RaggedRightParindent=\skip77
-\JustifyingParindent=\skip78
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+(lastpage)             ! on input line 28.
+\c@lstlisting=\count308
+LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -436,7 +444,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lof=\write5
 \openout5 = `SOC_hw9_report.lof'.
 
-LaTeX Font Info:    Trying to load font information for U+futs on input line 38.
+LaTeX Font Info:    Trying to load font information for U+futs on input line 39.
  (/usr/share/texlive/texmf-dist/tex/latex/fourier/ufuts.fd
 File: ufuts.fd 2004/03/02 Fontinst v1.926 font definitions for U/futs.
 )
@@ -450,7 +458,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 \newpage
+l.39 \newpage
               [1]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -460,6 +468,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-7.64995pt}.
 
 [2]
+Overfull \hbox (23.49419pt too wide) detected at line 128
+[][][]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 19.64995pt, for example:
@@ -467,7 +479,82 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-7.64995pt}.
 
-[3] 
+[3]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 19.64995pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.64995pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-7.64995pt}.
+
+[4]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 153.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 153.
+ (/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 10.20007pt on input line 153.
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 9.30756pt on input line 153.
+ (./matlab/SOC_hw9.m
+LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
+(Font)              scaled to size 9.30756pt on input line 3.
+LaTeX Font Info:    Trying to load font information for TS1+fvm on input line 7.
+ (/usr/share/texlive/texmf-dist/tex/latex/bera/ts1fvm.fd
+File: ts1fvm.fd 2004/09/07 scalable font definitions for TS1/fvm.
+)
+LaTeX Font Info:    Font shape `TS1/fvm/m/n' will be
+(Font)              scaled to size 9.30756pt on input line 7.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 10.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 15.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 15.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 17.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 21.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 21.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 25.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 33.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 33.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 19.64995pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.64995pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-7.64995pt}.
+
+[5]
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 60.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 60.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 60.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 60.
+) 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -476,23 +563,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-7.64995pt}.
 
-[4] (./SOC_hw9_report.aux)
+[6] (./SOC_hw9_report.aux)
 Package rerunfilecheck Info: File `SOC_hw9_report.out' has not changed.
-(rerunfilecheck)             Checksum: 2747FCE5F1DCC989E3B89302A09087EC;1243.
+(rerunfilecheck)             Checksum: 254EB69F4636BE24401C8FAB12025CB0;1331.
  ) 
 Here is how much of TeX's memory you used:
- 12327 strings out of 478287
- 195475 string characters out of 5849288
- 498381 words of memory out of 5000000
- 30322 multiletter control sequences out of 15000+600000
- 478707 words of font info for 66 fonts, out of 8000000 for 9000
+ 14375 strings out of 478287
+ 222629 string characters out of 5849288
+ 820236 words of memory out of 5000000
+ 32265 multiletter control sequences out of 15000+600000
+ 487551 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,13n,63p,387b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb>
-Output written on SOC_hw9_report.pdf (5 pages, 137754 bytes).
+ 60i,13n,63p,420b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/fourier/fourier-orns.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb>
+Output written on SOC_hw9_report.pdf (7 pages, 241874 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 303 PDF objects out of 1000 (max. 8388607)
+ 252 compressed objects within 3 object streams
+ 98 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 
